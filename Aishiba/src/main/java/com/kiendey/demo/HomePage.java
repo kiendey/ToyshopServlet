@@ -28,7 +28,10 @@ public class HomePage extends HttpServlet {
         if (sidebar != null){
             sidebar.include(req, resp);
         }
-        out.append("<main>Xin chào</main>");
+        RequestDispatcher index = req.getRequestDispatcher("/index.jsp");
+        if (index != null){
+            index.include(req, resp);
+        }
         RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
         if (footer != null){
             footer.include(req, resp);
