@@ -5,9 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 
-
-@WebServlet("/homepage")
-public class HomePage extends HttpServlet {
+@WebServlet("/order")
+public class Order extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
@@ -26,9 +25,9 @@ public class HomePage extends HttpServlet {
         if (sidebar != null){
             sidebar.include(req, resp);
         }
-        RequestDispatcher index = req.getRequestDispatcher("/index.jsp");
-        if (index != null){
-            index.include(req, resp);
+        RequestDispatcher order = req.getRequestDispatcher("/order.jsp");
+        if (order != null){
+            order.include(req, resp);
         }
         RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
         if (footer != null){
@@ -37,12 +36,6 @@ public class HomePage extends HttpServlet {
         RequestDispatcher end = req.getRequestDispatcher("/end.jsp");
         if (end != null){
             end.include(req, resp);
-        }
-        String page = req.getParameter("page");
-
-        if ("order".equals(page)) {
-            resp.sendRedirect(req.getContextPath() + "/order");
-            return;
         }
     }
 }

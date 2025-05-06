@@ -5,7 +5,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="index.html">
+            <a class="nav-link " href="homepage">
                 <i class="bi bi-grid fs-5"></i>
                 <span>Dashboard</span>
             </a>
@@ -41,12 +41,12 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="orders.html">
+                    <a href="order">
                         <i class="bi bi-receipt fs-5"></i><span>Đơn hàng</span>
                     </a>
                 </li>
                 <li>
-                    <a href="stocks.html">
+                    <a href="stock">
                         <i class="bi bi-box-arrow-in-down fs-5"></i><span>Nhập hàng</span>
                     </a>
                 </li>
