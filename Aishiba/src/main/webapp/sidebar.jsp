@@ -5,7 +5,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="homepage">
+            <a class="nav-link" href="homepage">
                 <i class="bi bi-grid fs-5"></i>
                 <span>Dashboard</span>
             </a>
@@ -13,16 +13,16 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-box-seam fs-5"></i><span>Sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-box-seam fs-5 " ></i><span>Sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="product.html">
+                    <a href="product" >
                         <i class="bi bi-list-ul fs-5"></i><span>Danh sách sản phẩm</span>
                     </a>
                 </li>
                 <li>
-                    <a href="supplier.html">
+                    <a href="supplier">
                         <i class="bi bi-truck fs-5"></i><span>Nhà cung cấp</span>
                     </a>
                 </li>
@@ -30,13 +30,25 @@
         </li><!-- End Components Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-people fs-5"></i><span>Nhân viên</span>
+            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-people-fill fs-5"></i><span>Khách hàng</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-        </li><!-- End Forms Nav -->
+            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="customer">
+                        <i class="bi bi-person-lines-fill fs-5"></i><span>Danh sách khách hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="account">
+                        <i class="bi bi-person-x fs-5"></i><span>Khóa/Mở tài khoản khách hàng</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Charts Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" >
                 <i class="bi bi-cart-check fs-5"></i><span>Giao dịch</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -53,42 +65,31 @@
             </ul>
         </li><!-- End Tables Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-people-fill fs-5"></i><span>Khách hàng</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="#">
-                        <i class="bi bi-person-lines-fill fs-5"></i><span>Danh sách khách hàng</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="bi bi-person-x fs-5"></i><span>Khóa/Mở tài khoản khách hàng</span>
-                    </a>
-                </li>
-            </ul>
-        </li><!-- End Charts Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-graph-up fs-5"></i><span>Thống kê</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-bar-chart-line fs-5"></i><span>Thống kê</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="icons-bootstrap.html">
-                        <i class="bi bi-file-earmark-excel fs-5"></i><span>Xuất báo cáo</span>
+                    <a href="report-day">
+                        <i class="bi bi-calendar-check fs-5"></i><span>Cuối ngày</span>
                     </a>
                 </li>
                 <li>
-                    <a href="icons-remix.html">
-                        <i class="bi bi-box-seam fs-5"></i><span>Hàng tồn kho</span>
+                    <a href="report-product">
+                        <i class="bi bi-box fs-5"></i><span>Hàng hoá</span>
                     </a>
                 </li>
                 <li>
-                    <a href="icons-boxicons.html">
-                        <i class="bi bi-bar-chart fs-5"></i><span>Lược đồ doanh thu</span>
+                    <a href="report-customer">
+                        <i class="bi bi-people fs-5"></i><span>Khách hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="report-finance">
+                        <i class="bi bi-cash-coin fs-5"></i><span>Tài chính</span>
                     </a>
                 </li>
             </ul>
@@ -134,3 +135,4 @@
     </ul>
 
 </aside><!-- End Sidebar-->
+

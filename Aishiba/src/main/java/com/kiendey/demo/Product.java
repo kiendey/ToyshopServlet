@@ -6,8 +6,8 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/order")
-public class Order extends HttpServlet {
+@WebServlet("/product")
+public class Product extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
@@ -26,7 +26,7 @@ public class Order extends HttpServlet {
             sidebar.include(req, resp);
         }
 
-        RequestDispatcher order = req.getRequestDispatcher("/order.jsp");
+        RequestDispatcher order = req.getRequestDispatcher("/product.jsp");
         if (order != null){
             order.include(req, resp);
         }

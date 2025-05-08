@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Cấu hình kết nối cơ sở dữ liệu PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/your_database_name</property>
+        <property name="hibernate.connection.username">your_username</property>
+        <property name="hibernate.connection.password">your_password</property>
+
+        <!-- Cấu hình dialect cho PostgreSQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Hiển thị SQL query trong console (tùy chọn để debug) -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Tự động tạo bảng dựa trên entity -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Định nghĩa các entity -->
+        <mapping class="com.kiendey.model.Toy"/>
+        <!-- Thêm các entity khác nếu cần -->
+
+    </session-factory>
+</hibernate-configuration>

@@ -29,288 +29,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <style>
-    .card {
-      border-radius: 16px !important;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06) !important;
-      border: none !important;
-    }
-    .table {
-      border-radius: 12px !important;
-      overflow: hidden;
-      background: #fff;
-    }
-    .table thead th {
-      background: #f6f8fa !important;
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
-    .table tbody tr {
-      transition: background 0.2s;
-    }
-    .table tbody tr:hover {
-      background: #f0f6ff;
-    }
-    .badge.bg-success {
-      background: #22c55e !important;
-    }
-    .badge.bg-danger {
-      background: #ef4444 !important;
-    }
-    .btn-primary {
-      background: #2563eb !important;
-      border: none;
-    }
-    .btn-success {
-      background: #22c55e !important;
-      border: none;
-    }
-    .btn-outline-secondary {
-      border-radius: 8px;
-    }
-    .input-group-text {
-      background: #fff;
-      border-right: 0;
-    }
-    .form-control, .form-select {
-      border-radius: 8px !important;
-    }
-    .product-detail-row {
-      display: none;
-      background: #fff;
-      transition: all 0.3s ease;
-      max-height: 0;
-      overflow: hidden;
-    }
-    .product-detail-row.show {
-      display: table-row;
-      max-height: 1000px;
-    }
-    .product-detail-row td {
-      padding: 0 !important;
-    }
-    .product-detail-row .product-detail-content {
-      padding: 1.5rem;
-      border-top: 1px solid #eee;
-      transform: translateY(-100%);
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-    .product-detail-row.show .product-detail-content {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .product-detail-row .product-detail-content .row {
-      margin: 0;
-    }
-    .product-detail-row .product-detail-content img {
-      max-height: 200px;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .detail-section {
-      background: #f8fafc;
-      padding: 1rem;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      border: 1px solid #e5e7eb;
-      transition: all 0.2s ease;
-    }
-    .detail-section:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transform: translateY(-2px);
-    }
-    .detail-section h5 {
-      color: #2563eb;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    .detail-label {
-      font-weight: 600;
-      color: #4b5563;
-      margin-bottom: 0.5rem;
-    }
-    .detail-value {
-      color: #1f2937;
-    }
-    .selected-row {
-      background: #f0f6ff !important;
-    }
-    .star-header {
-      pointer-events: none;
-      opacity: 0.7;
-    }
-    .star-outline {
-      color: #ffc107;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .star-outline.text-warning {
-      color: #ffc107 !important;
-    }
-    .header-star {
-      cursor: pointer;
-      font-size: 1.1em;
-      transition: transform 0.2s;
-    }
-    .header-star:hover {
-      transform: scale(1.2);
-    }
-    .product-images {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .product-image-item {
-      position: relative;
-      aspect-ratio: 1;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 2px solid #e5e7eb;
-    }
-    .product-image-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .product-image-item .remove-image {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: rgba(239, 68, 68, 0.9);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      font-size: 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .image-upload-placeholder {
-      border: 2px dashed #e5e7eb;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      background: #f9fafb;
-      aspect-ratio: 1;
-      transition: all 0.2s;
-    }
-    .image-upload-placeholder:hover {
-      border-color: #2563eb;
-      background: #f0f6ff;
-    }
-    .business-status-switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 30px;
-    }
-    .business-status-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    .business-status-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ef4444;
-      transition: .4s;
-      border-radius: 34px;
-    }
-    .business-status-slider:before {
-      position: absolute;
-      content: "";
-      height: 22px;
-      width: 22px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-    }
-    input:checked + .business-status-slider {
-      background-color: #22c55e;
-    }
-    input:checked + .business-status-slider:before {
-      transform: translateX(30px);
-    }
-    .date-range-inputs {
-      display: flex;
-      gap: 10px;
-      margin-left: 10px;
-      flex: 1;
-    }
-    .date-input-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      padding: 0 10px;
-      border: 1px solid #dee2e6;
-      border-radius: 6px;
-      flex: 1;
-    }
-    .date-input-group label {
-      color: #6c757d;
-      font-size: 0.9rem;
-      margin-bottom: 0;
-      white-space: nowrap;
-    }
-    .date-input-group input[type="date"] {
-      border: none;
-      padding: 6px 0;
-      flex: 1;
-      min-width: 120px;
-    }
-    .date-input-group input[type="date"]:focus {
-      outline: none;
-      box-shadow: none;
-    }
-    .dropdown-toggle {
-      border-radius: 6px;
-      padding: 8px 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-    .dropdown-toggle i {
-      font-size: 1.1rem;
-    }
-    .dropdown-menu {
-      padding: 8px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-    }
-    .dropdown-item {
-      padding: 8px 16px;
-    }
-    .dropdown-item:hover {
-      background-color: #f0f6ff;
-    }
-    .dropdown-divider {
-      margin: 4px 0;
-    }
-    .badge {
-      font-size: 0.875rem;
-      padding: 0.35em 0.65em;
-      font-weight: 500;
-    }
-    .table td {
-      vertical-align: middle;
-    }
-  </style>
+  
 </head>
 <body>
   <!-- ======= Header ======= -->
@@ -1024,27 +743,6 @@
     <input type="file" id="importFile" accept=".csv" style="display:none" onchange="handleImport(event)">
 
   </main><!-- End #main -->
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; 2025 <strong><span>Aishiba</span></strong>. All Rights Reserved.
-    </div>
-    <div class="credits">
-      Designed by <a href="#">Team Seven</a>
-    </div>
-  </footer><!-- End Footer -->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js" defer></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-  <script src="assets/vendor/chart.js/chart.umd.js" defer></script>
-  <script src="assets/vendor/echarts/echarts.min.js" defer></script>
-  <script src="assets/vendor/quill/quill.js" defer></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js" defer></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js" defer></script>
-  <script src="assets/vendor/php-email-form/validate.js" defer></script>
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
   <script>
     // 5 sản phẩm mẫu
     let products = [
@@ -2234,5 +1932,309 @@
       alert(`Đã ngừng kinh doanh ${selectedProducts.length} sản phẩm!`);
     }
   </script>
+  <style>
+    .card {
+      border-radius: 16px !important;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06) !important;
+      border: none !important;
+    }
+    .table {
+      border-radius: 12px !important;
+      overflow: hidden;
+      background: #fff;
+    }
+    .table thead th {
+      background: #f6f8fa !important;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .table tbody tr {
+      transition: background 0.2s;
+    }
+    .table tbody tr:hover {
+      background: #f0f6ff;
+    }
+    .badge.bg-success {
+      background: #22c55e !important;
+    }
+    .badge.bg-danger {
+      background: #ef4444 !important;
+    }
+    .btn-primary {
+      background: #2563eb !important;
+      border: none;
+    }
+    .btn-success {
+      background: #22c55e !important;
+      border: none;
+    }
+    .btn-outline-secondary {
+      border-radius: 8px;
+    }
+    .input-group-text {
+      background: #fff;
+      border-right: 0;
+    }
+    .form-control, .form-select {
+      border-radius: 8px !important;
+    }
+    .product-detail-row {
+      display: none;
+      background: #fff;
+      transition: all 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+    .product-detail-row.show {
+      display: table-row;
+      max-height: 1000px;
+    }
+    .product-detail-row td {
+      padding: 0 !important;
+    }
+    .product-detail-row .product-detail-content {
+      padding: 1.5rem;
+      border-top: 1px solid #eee;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .product-detail-row.show .product-detail-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .product-detail-row .product-detail-content .row {
+      margin: 0;
+    }
+    .product-detail-row .product-detail-content img {
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .detail-section {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s ease;
+    }
+    .detail-section:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transform: translateY(-2px);
+    }
+    .detail-section h5 {
+      color: #2563eb;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .detail-label {
+      font-weight: 600;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+    .detail-value {
+      color: #1f2937;
+    }
+    .selected-row {
+      background: #f0f6ff !important;
+    }
+    .star-header {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .star-outline {
+      color: #ffc107;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .star-outline.text-warning {
+      color: #ffc107 !important;
+    }
+    .header-star {
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: transform 0.2s;
+    }
+    .header-star:hover {
+      transform: scale(1.2);
+    }
+    .product-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .product-image-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #e5e7eb;
+    }
+    .product-image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-image-item .remove-image {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(239, 68, 68, 0.9);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-upload-placeholder {
+      border: 2px dashed #e5e7eb;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: #f9fafb;
+      aspect-ratio: 1;
+      transition: all 0.2s;
+    }
+    .image-upload-placeholder:hover {
+      border-color: #2563eb;
+      background: #f0f6ff;
+    }
+    .business-status-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+    .business-status-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .business-status-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ef4444;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .business-status-slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .business-status-slider {
+      background-color: #22c55e;
+    }
+    input:checked + .business-status-slider:before {
+      transform: translateX(30px);
+    }
+    .date-range-inputs {
+      display: flex;
+      gap: 10px;
+      margin-left: 10px;
+      flex: 1;
+    }
+    .date-input-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      padding: 0 10px;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      flex: 1;
+    }
+    .date-input-group label {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      white-space: nowrap;
+    }
+    .date-input-group input[type="date"] {
+      border: none;
+      padding: 6px 0;
+      flex: 1;
+      min-width: 120px;
+    }
+    .date-input-group input[type="date"]:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    .dropdown-toggle {
+      border-radius: 6px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .dropdown-toggle i {
+      font-size: 1.1rem;
+    }
+    .dropdown-menu {
+      padding: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .dropdown-item {
+      padding: 8px 16px;
+    }
+    .dropdown-item:hover {
+      background-color: #f0f6ff;
+    }
+    .dropdown-divider {
+      margin: 4px 0;
+    }
+    .badge {
+      font-size: 0.875rem;
+      padding: 0.35em 0.65em;
+      font-weight: 500;
+    }
+    .table td {
+      vertical-align: middle;
+    }
+  </style>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; 2025 <strong><span>Aishiba</span></strong>. All Rights Reserved.
+    </div>
+    <div class="credits">
+      Designed by <a href="#">Team Seven</a>
+    </div>
+  </footer><!-- End Footer -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js" defer></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/chart.js/chart.umd.js" defer></script>
+  <script src="assets/vendor/echarts/echarts.min.js" defer></script>
+  <script src="assets/vendor/quill/quill.js" defer></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js" defer></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+ 
 </body>
 </html>
