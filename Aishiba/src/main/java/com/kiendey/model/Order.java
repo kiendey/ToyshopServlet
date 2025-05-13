@@ -19,6 +19,7 @@ public class Order extends AbstractEntity<String> {
     @Column(name = "order_date", nullable = false)
     LocalDateTime orderDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     OrderStatus status;
 

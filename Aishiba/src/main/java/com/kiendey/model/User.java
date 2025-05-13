@@ -41,7 +41,7 @@ public class User extends AbstractEntity<String> {
     @Column(name = "phone")
     String phone;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", nullable = false)
     Role role;
 }

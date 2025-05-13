@@ -12,12 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Coupon {
-
-    @Id
-    @Column(name = "code", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String code;
+public class Coupon extends AbstractEntity<String>{
 
     @Column(name = "start_date")
     LocalDate startDate;
@@ -36,8 +31,8 @@ public class Coupon {
     @PrePersist
     @PreUpdate
     private void toUpperCase() {
-        if (this.code != null) {
-            this.code = this.code.toUpperCase();
+        if (this.getId() != null) {
+            this.setId(this.getId().toUpperCase()) ;
         }
     }
 }

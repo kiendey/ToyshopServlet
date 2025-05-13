@@ -31,7 +31,7 @@ public class Toy {
     @Column(name = "stock")
     int stock;
 
-    @Column(name = "description", columnDefinition = "MEDIUMTEXT")
+    @Column(name = "description", columnDefinition = "TEXT")
     String description;
 
     @Column(name = "material")

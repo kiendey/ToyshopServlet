@@ -72,7 +72,7 @@
                   <th class="text-center">
                     <input type="checkbox" class="form-check-input" id="selectAll" title="Chọn tất cả đơn hàng">
                   </th>
-                  <th class="bi bi-headerstar text-center">★</th>
+                  <th ><i class=" bi bi-star header-star text-center"></i></th>
                   <th class="text-start">Mã hóa đơn</th>
                   <th class="text-center">Thời gian</th>
                   <th class="text-center">Mã trả hàng</th>
