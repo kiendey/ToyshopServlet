@@ -1,10 +1,11 @@
-package com.kiendey.demo;
+package com.kiendey.servlet;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 
-@WebServlet("/report-finance")
-public class ReportFinance extends HttpServlet{
+@WebServlet("/account")
+public class Account extends HttpServlet {
+    @Override
     protected void doGet(jakarta.servlet.http.HttpServletRequest req, jakarta.servlet.http.HttpServletResponse resp) throws jakarta.servlet.ServletException, java.io.IOException {
         resp.setContentType("text/html;charset=UTF-8");
         //Call jsp files
@@ -20,9 +21,9 @@ public class ReportFinance extends HttpServlet{
         if (sidebar != null) {
             sidebar.include(req, resp);
         }
-        jakarta.servlet.RequestDispatcher reportFinance = req.getRequestDispatcher("/report_finance.jsp");
-        if (reportFinance != null) {
-            reportFinance.include(req, resp);
+        jakarta.servlet.RequestDispatcher order = req.getRequestDispatcher("/account.jsp");
+        if (order != null) {
+            order.include(req, resp);
         }
         jakarta.servlet.RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
         if (footer != null) {

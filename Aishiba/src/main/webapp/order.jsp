@@ -69,10 +69,10 @@
               <table class="table table-hover">
                 <thead class="table-light">
                 <tr>
-                  <th class="text-center" width="40">
+                  <th class="text-center">
                     <input type="checkbox" class="form-check-input" id="selectAll" title="Chọn tất cả đơn hàng">
                   </th>
-                  <th class="text-center" width="40">★</th>
+                  <th class="bi bi-headerstar text-center">★</th>
                   <th class="text-start">Mã hóa đơn</th>
                   <th class="text-center">Thời gian</th>
                   <th class="text-center">Mã trả hàng</th>
@@ -352,8 +352,130 @@
     color: #41464b;
     border-color: #d3d6d8;
   }
+  .header-star,
+  .bi-star,
+  .bi-star-fill {
+    color: #ffc107;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-text-stroke: 0.25px #ffc107;
+    user-select: none;
+  }
+
+  .header-star:hover,
+  .bi-star:hover,
+  .bi-star-fill:hover {
+    transform: scale(1.2);
+  }
+
+  .bi-star-fill {
+    color: #ffc107 !important;
+  }
+
+  td.text-center {
+    cursor: default;
+  }
 </style>
 <!-- ======= Script ======= -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Lấy ngôi sao ở header và tất cả ngôi sao trong tbody
+    const headerStar = document.querySelector("thead th:nth-child(2)");
+    const rowStars = document.querySelectorAll(
+            "tbody tr td:nth-child(2) i"
+    );
+
+    // Thêm ngôi sao vào header nếu chưa có
+    if (!headerStar.querySelector("i")) {
+      headerStar.innerHTML =
+              '<i class="bi bi-star text-warning header-star"></i>';
+    }
+
+    // Lấy reference tới ngôi sao header
+    const headerStarIcon = headerStar.querySelector("i");
+
+    // Xử lý click vào ngôi sao header
+    headerStarIcon.addEventListener("click", function () {
+      const isHeaderStarFilled = this.classList.contains("bi-star-fill");
+
+      // Toggle star trong header
+      if (isHeaderStarFilled) {
+        this.classList.remove("bi-star-fill");
+        this.classList.add("bi-star");
+      } else {
+        this.classList.remove("bi-star");
+        this.classList.add("bi-star-fill");
+      }
+
+      // Toggle tất cả stars trong tbody
+      rowStars.forEach((star) => {
+        if (isHeaderStarFilled) {
+          star.classList.remove("bi-star-fill");
+          star.classList.add("bi-star");
+        } else {
+          star.classList.remove("bi-star");
+          star.classList.add("bi-star-fill");
+        }
+
+        // Lưu trạng thái vào localStorage
+        const orderId = star.closest("tr").querySelector("a").textContent;
+        localStorage.setItem(`favorite_${orderId}`, !isHeaderStarFilled);
+      });
+    });
+
+    // Xử lý click cho từng ngôi sao trong tbody
+    rowStars.forEach((star) => {
+      star.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Toggle class của ngôi sao được click
+        if (this.classList.contains("bi-star-fill")) {
+          this.classList.remove("bi-star-fill");
+          this.classList.add("bi-star");
+        } else {
+          this.classList.remove("bi-star");
+          this.classList.add("bi-star-fill");
+        }
+
+        // Lưu trạng thái vào localStorage
+        const orderId = this.closest("tr").querySelector("a").textContent;
+        const isFavorite = this.classList.contains("bi-star-fill");
+        localStorage.setItem(`favorite_${orderId}`, isFavorite);
+
+        // Cập nhật trạng thái header star
+        updateHeaderStar();
+      });
+
+      // Khôi phục trạng thái từ localStorage
+      const orderId = star.closest("tr").querySelector("a").textContent;
+      const isFavorite =
+              localStorage.getItem(`favorite_${orderId}`) === "true";
+      if (isFavorite) {
+        star.classList.remove("bi-star");
+        star.classList.add("bi-star-fill");
+      }
+    });
+
+    // Hàm cập nhật trạng thái header star
+    function updateHeaderStar() {
+      const allStarsFilled = Array.from(rowStars).every((star) =>
+              star.classList.contains("bi-star-fill")
+      );
+
+      if (allStarsFilled) {
+        headerStarIcon.classList.remove("bi-star");
+        headerStarIcon.classList.add("bi-star-fill");
+      } else {
+        headerStarIcon.classList.remove("bi-star-fill");
+        headerStarIcon.classList.add("bi-star");
+      }
+    }
+
+    // Cập nhật trạng thái header star khi load trang
+    updateHeaderStar();
+  });
+</script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const selectAll = document.getElementById('selectAll');

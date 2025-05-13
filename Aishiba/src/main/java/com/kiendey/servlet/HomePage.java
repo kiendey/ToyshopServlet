@@ -1,4 +1,4 @@
-package com.kiendey.demo;
+package com.kiendey.servlet;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;

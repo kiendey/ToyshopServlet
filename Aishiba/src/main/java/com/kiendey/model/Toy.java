@@ -46,6 +46,18 @@ public class Toy {
     @Column(name = "image")
     String image;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "brand_id", nullable = false)
+    Brand brand;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "supplier_id", nullable = false)
+    Supplier supplier;
+
     @Column(name = "create_at")
     @CreationTimestamp
     LocalDateTime createdAt;

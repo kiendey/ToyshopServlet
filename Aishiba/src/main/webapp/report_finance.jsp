@@ -72,18 +72,6 @@
                 <p class="text-center text-muted">Từ ngày 01/04/2025 đến ngày 20/04/2025</p>
                 <p class="text-center text-muted">Chi nhánh trung tâm</p>
 
-                <div class="d-flex justify-content-end mb-3">
-                    <button class="btn btn-primary me-2" id="printReport">
-                        <i class="bi bi-printer"></i> In báo cáo
-                    </button>
-                    <button class="btn btn-success me-2" id="exportExcel">
-                        <i class="bi bi-file-earmark-excel"></i> Xuất Excel
-                    </button>
-                    <button class="btn btn-info" id="sendEmail">
-                        <i class="bi bi-envelope"></i> Gửi Email
-                    </button>
-                </div>
-
                 <table class="table table-bordered mt-4">
                     <thead class="table-light">
                     <tr>
@@ -416,21 +404,21 @@
     }
 </style>
 
+<!-- Thêm thư viện SheetJS (đặt trước thẻ đóng </body>) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
 <script>
-    // Hàm in báo cáo
     document.getElementById('printReport').addEventListener('click', function () {
-        window.print(); // Sử dụng chức năng in của trình duyệt
+        window.print();
     });
 
-    // Hàm xuất Excel
     document.getElementById('exportExcel').addEventListener('click', function () {
-        alert('Chức năng xuất Excel đang được phát triển!');
-        // Bạn có thể sử dụng thư viện như SheetJS (XLSX) để xuất dữ liệu ra file Excel
+        var wb = XLSX.utils.table_to_book(document.querySelector('table'), { sheet: "Báo cáo" });
+        XLSX.writeFile(wb, 'baocaotaichinh.xlsx');
     });
 
-    // Hàm gửi Email
+    // Gửi Email - tạm thời hiển thị thông báo phát triển
     document.getElementById('sendEmail').addEventListener('click', function () {
-        alert('Chức năng gửi Email đang được phát triển!');
-        // Bạn có thể tích hợp API gửi email tại đây
+        alert("Chức năng gửi email đang được phát triển.");
     });
 </script>

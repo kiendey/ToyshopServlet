@@ -1,11 +1,10 @@
-package com.kiendey.demo;
+package com.kiendey.servlet;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 
-@WebServlet("/account")
-public class Account extends HttpServlet {
-    @Override
+@WebServlet("/report-day")
+public class ReportDay extends HttpServlet{
     protected void doGet(jakarta.servlet.http.HttpServletRequest req, jakarta.servlet.http.HttpServletResponse resp) throws jakarta.servlet.ServletException, java.io.IOException {
         resp.setContentType("text/html;charset=UTF-8");
         //Call jsp files
@@ -21,9 +20,9 @@ public class Account extends HttpServlet {
         if (sidebar != null) {
             sidebar.include(req, resp);
         }
-        jakarta.servlet.RequestDispatcher order = req.getRequestDispatcher("/account.jsp");
-        if (order != null) {
-            order.include(req, resp);
+        jakarta.servlet.RequestDispatcher reportDay = req.getRequestDispatcher("/report_day.jsp");
+        if (reportDay != null) {
+            reportDay.include(req, resp);
         }
         jakarta.servlet.RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
         if (footer != null) {

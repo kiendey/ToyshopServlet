@@ -1,4 +1,4 @@
-package com.kiendey.demo;
+package com.kiendey.servlet;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,8 +6,8 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/customer")
-public class Customer extends  HttpServlet{
+@WebServlet("/product")
+public class Product extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
@@ -25,9 +25,10 @@ public class Customer extends  HttpServlet{
         if (sidebar != null){
             sidebar.include(req, resp);
         }
-        RequestDispatcher customer = req.getRequestDispatcher("/customer.jsp");
-        if (customer != null){
-            customer.include(req, resp);
+
+        RequestDispatcher order = req.getRequestDispatcher("/product.jsp");
+        if (order != null){
+            order.include(req, resp);
         }
         RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
         if (footer != null){

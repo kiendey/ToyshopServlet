@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Nhập hàng</h1>
@@ -14,7 +15,9 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title fs-4 text-primary">Danh sách phiếu nhập hàng</h5>
+                <h5 class="card-title fs-4 text-primary">
+                    Danh sách phiếu nhập hàng
+                </h5>
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <!-- Thanh tìm kiếm -->
                     <div class="search-box flex-grow-1">
@@ -22,8 +25,17 @@
                   <span class="input-group-text bg-light">
                     <i class="bi bi-search"></i>
                   </span>
-                            <input type="text" class="form-control" id="searchInput" placeholder="Theo mã phiếu nhập, nhà cung cấp, thời gian,..." />
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="searchInput"
+                                    placeholder="Theo mã phiếu nhập, nhà cung cấp, thời gian,..."
+                            />
+                            <button
+                                    class="btn btn-outline-secondary dropdown-toggle"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                            >
                                 <i class="bi bi-funnel"></i>
                             </button>
                         </div>
@@ -38,7 +50,10 @@
                             <i class="bi bi-download"></i> Xuất file
                         </button>
                         <div class="btn-group">
-                            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                            <button
+                                    class="btn btn-light dropdown-toggle"
+                                    data-bs-toggle="dropdown"
+                            >
                                 <i class="bi bi-three-dots"></i>
                             </button>
                         </div>
@@ -53,7 +68,9 @@
                             <th width="40">
                                 <input type="checkbox" class="form-check-input" />
                             </th>
-                            <th width="40">★</th>
+                            <th width="40">
+                                <i class="bi bi-star header-star"></i>
+                            </th>
                             <th>Mã nhập hàng</th>
                             <th>Thời gian</th>
                             <th>Nhà cung cấp</th>
@@ -69,7 +86,9 @@
                             <td>15/04/2025 08:34</td>
                             <td>Đại lý Hồng Phúc</td>
                             <td class="text-end">1,500,000</td>
-                            <td style="padding-left: 30px"><span class="badge bg-success">Đã nhập hàng</span></td>
+                            <td style="padding-left: 30px">
+                                <span class="badge bg-success">Đã nhập hàng</span>
+                            </td>
                         </tr>
 
                         <tr>
@@ -79,7 +98,11 @@
                             <td>14/04/2025 15:30</td>
                             <td>Công ty Pharmedic</td>
                             <td class="text-end">2,800,000</td>
-                            <td style="padding-left: 30px"><span class="badge bg-warning text-dark">Chờ nhập hàng</span></td>
+                            <td style="padding-left: 30px">
+                      <span class="badge bg-warning text-dark"
+                      >Chờ nhập hàng</span
+                      >
+                            </td>
                         </tr>
 
                         <tr>
@@ -89,7 +112,9 @@
                             <td>13/04/2025 10:15</td>
                             <td>Cửa hàng Đại Việt</td>
                             <td class="text-end">3,200,000</td>
-                            <td style="padding-left: 30px"><span class="badge bg-info">Đang nhập hàng</span></td>
+                            <td style="padding-left: 30px">
+                                <span class="badge bg-info">Đang nhập hàng</span>
+                            </td>
                         </tr>
 
                         <!-- Continue with similar pattern for remaining rows -->
@@ -127,9 +152,7 @@
     .badge.bg-secondary {
         background-color: #6c757d !important;
     }
-</style>
 
-<style>
     /* Search box styling */
     .search-box {
         max-width: 650px; /* Reduced from default/full width */
@@ -153,9 +176,7 @@
     .search-box .btn:hover {
         background-color: #f8f9fa;
     }
-</style>
 
-<style>
     /* Modal styling */
     .modal-xl {
         max-width: 850px;
@@ -185,9 +206,7 @@
     .bi-three-dots-vertical:hover {
         color: #0d6efd;
     }
-</style>
 
-<style>
     /* Status badge colors */
     .badge.bg-waiting {
         background-color: #ffc107 !important;
@@ -239,9 +258,7 @@
         background-color: #f8d7da;
         color: #000;
     }
-</style>
 
-<style>
     /* Status select styling */
     .form-select option:checked {
         background-color: var(--status-bg);
@@ -277,96 +294,76 @@
         --status-bg: #f8d7da;
         --status-text: #842029;
     }
+    .header-star,
+    .bi-star,
+    .bi-star-fill {
+        color: #ffc107;
+        cursor: pointer;
+        transition: all 0.2s;
+        -webkit-text-stroke: 0.25px #ffc107;
+        user-select: none;
+    }
+
+    .header-star:hover,
+    .bi-star:hover,
+    .bi-star-fill:hover {
+        transform: scale(1.2);
+    }
+
+    .bi-star-fill {
+        color: #ffc107 !important;
+    }
+
+    td.text-center {
+        cursor: default;
+    }
 </style>
 <!-- ======= Script ======= -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Xử lý checkbox chọn tất cả
-        const selectAll = document.querySelector('thead .form-check-input');
-        const checkboxes = document.querySelectorAll('tbody .form-check-input');
+        const selectAll = document.querySelector("thead .form-check-input");
+        const checkboxes = document.querySelectorAll("tbody .form-check-input");
 
-        selectAll.addEventListener('change', function() {
-            checkboxes.forEach(checkbox => {
+        selectAll.addEventListener("change", function () {
+            checkboxes.forEach((checkbox) => {
                 checkbox.checked = this.checked;
             });
         });
 
         // Cập nhật trạng thái "chọn tất cả"
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-                const someChecked = Array.from(checkboxes).some(cb => cb.checked);
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", function () {
+                const allChecked = Array.from(checkboxes).every((cb) => cb.checked);
+                const someChecked = Array.from(checkboxes).some((cb) => cb.checked);
 
                 selectAll.checked = allChecked;
                 selectAll.indeterminate = someChecked && !allChecked;
             });
         });
 
-        // Xử lý nút ngôi sao
-        const starButtons = document.querySelectorAll('.bi-star');
-        starButtons.forEach(star => {
-            star.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                // Toggle class để đổi màu sao
-                if(this.classList.contains('bi-star-fill')) {
-                    this.classList.remove('bi-star-fill');
-                    this.classList.add('bi-star');
-                } else {
-                    this.classList.remove('bi-star');
-                    this.classList.add('bi-star-fill');
-                }
-
-                // Lưu trạng thái vào localStorage
-                const orderId = this.closest('tr').querySelector('a').textContent;
-                const isFavorite = this.classList.contains('bi-star-fill');
-                localStorage.setItem(`favorite_${orderId}`, isFavorite);
-            });
-
-            // Khôi phục trạng thái từ localStorage khi load trang
-            const orderId = star.closest('tr').querySelector('a').textContent;
-            const isFavorite = localStorage.getItem(`favorite_${orderId}`) === 'true';
-            if(isFavorite) {
-                star.classList.remove('bi-star');
-                star.classList.add('bi-star-fill');
-            }
-        });
-
-        // Thêm style cho ngôi sao
-        const style = document.createElement('style');
-        style.textContent = `
-        .bi-star, .bi-star-fill {
-          cursor: pointer;
-          transition: all 0.2s;
-          -webkit-text-stroke: 0.25px #ffc107;  /* Viền vàng mỏng hơn */
-          user-select: none;  /* Thêm dòng này */
-        }
-        .bi-star:hover, .bi-star-fill:hover {
-          transform: scale(1.2);
-        }
-        .bi-star-fill {
-          color: #ffc107 !important;
-        }
-        td.text-center {
-          cursor: default;  /* Thêm dòng này */
-        }
-      `;
-        document.head.appendChild(style);
-
         // Xử lý tìm kiếm
-        const searchInput = document.getElementById('searchInput');
-        const filterDropdown = document.querySelector('.dropdown-toggle');
-        const tableRows = document.querySelectorAll('tbody tr');
+        const searchInput = document.getElementById("searchInput");
+        const filterDropdown = document.querySelector(".dropdown-toggle");
+        const tableRows = document.querySelectorAll("tbody tr");
 
         // Hàm tìm kiếm
         function searchTable() {
             const searchTerm = searchInput.value.toLowerCase();
 
-            tableRows.forEach(row => {
-                const code = row.querySelector('a.text-primary').textContent.toLowerCase();
-                const supplier = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
-                const status = row.querySelector('.badge').textContent.toLowerCase();
-                const date = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+            tableRows.forEach((row) => {
+                const code = row
+                    .querySelector("a.text-primary")
+                    .textContent.toLowerCase();
+                const supplier = row
+                    .querySelector("td:nth-child(5)")
+                    .textContent.toLowerCase();
+                const status = row
+                    .querySelector(".badge")
+                    .textContent.toLowerCase();
+                const date = row
+                    .querySelector("td:nth-child(4)")
+                    .textContent.toLowerCase();
 
                 const matchesSearch =
                     code.includes(searchTerm) ||
@@ -374,39 +371,41 @@
                     status.includes(searchTerm) ||
                     date.includes(searchTerm);
 
-                row.style.display = matchesSearch ? '' : 'none';
+                row.style.display = matchesSearch ? "" : "none";
             });
         }
         // Xử lý sự kiện tìm kiếm
-        searchInput.addEventListener('input', searchTable);
+        searchInput.addEventListener("input", searchTable);
 
         // Fix click handler for order codes - replace both existing click handlers
-        document.querySelectorAll('td a.text-primary').forEach(link => {
-            link.addEventListener('click', function(e) {
+        document.querySelectorAll("td a.text-primary").forEach((link) => {
+            link.addEventListener("click", function (e) {
                 e.preventDefault();
 
                 // Get data from clicked row
-                const row = this.closest('tr');
+                const row = this.closest("tr");
                 const orderData = {
                     id: this.textContent,
                     date: row.cells[3].textContent,
                     supplier: row.cells[4].textContent,
                     amount: row.cells[5].textContent,
-                    status: row.querySelector('.badge').textContent,
-                    statusClass: row.querySelector('.badge').className
+                    status: row.querySelector(".badge").textContent,
+                    statusClass: row.querySelector(".badge").className,
                 };
 
                 // Get and update modal content
-                const modal = document.getElementById('orderDetailModal');
+                const modal = document.getElementById("orderDetailModal");
 
                 // Update fields
                 modal.querySelector('input[value="HD000045"]').value = orderData.id;
-                modal.querySelector('input[value="14/04/2025 08:33"]').value = orderData.date;
-                modal.querySelector('input[value="Cửa hàng Đại Việt"]').value = orderData.supplier;
+                modal.querySelector('input[value="14/04/2025 08:33"]').value =
+                    orderData.date;
+                modal.querySelector('input[value="Cửa hàng Đại Việt"]').value =
+                    orderData.supplier;
 
                 // Update status select
-                const statusSelect = modal.querySelector('select');
-                Array.from(statusSelect.options).forEach(option => {
+                const statusSelect = modal.querySelector("select");
+                Array.from(statusSelect.options).forEach((option) => {
                     if (option.text === orderData.status) {
                         option.selected = true;
                     }
@@ -419,23 +418,25 @@
         });
 
         // Fix click handler for showing order details
-        document.querySelectorAll('td a.text-primary').forEach(link => {
-            link.addEventListener('click', function(e) {
+        document.querySelectorAll("td a.text-primary").forEach((link) => {
+            link.addEventListener("click", function (e) {
                 e.preventDefault();
 
                 // Get data from clicked row
-                const row = this.closest('tr');
+                const row = this.closest("tr");
                 const orderData = {
                     id: this.textContent,
                     date: row.cells[3].textContent,
                     supplier: row.cells[4].textContent,
                     amount: row.cells[5].textContent,
-                    status: row.querySelector('.badge').textContent,
-                    statusClass: row.querySelector('.badge').className
+                    status: row.querySelector(".badge").textContent,
+                    statusClass: row.querySelector(".badge").className,
                 };
 
                 // Get modal and show it
-                const modal = new bootstrap.Modal(document.getElementById('orderDetailModal'));
+                const modal = new bootstrap.Modal(
+                    document.getElementById("orderDetailModal")
+                );
 
                 // Update modal content before showing
                 updateModalContent(orderData);
@@ -446,74 +447,186 @@
 
         // Helper function to update modal content
         function updateModalContent(data) {
-            const modal = document.getElementById('orderDetailModal');
+            const modal = document.getElementById("orderDetailModal");
 
             // Update header info
-            modal.querySelector('.modal-body .mb-3:nth-child(1) span').textContent = data.id;
-            modal.querySelector('.modal-body .mb-3:nth-child(2) span').textContent = data.date;
-            modal.querySelector('.modal-body .mb-3:nth-child(3) a').textContent = data.supplier;
+            modal.querySelector(
+                ".modal-body .mb-3:nth-child(1) span"
+            ).textContent = data.id;
+            modal.querySelector(
+                ".modal-body .mb-3:nth-child(2) span"
+            ).textContent = data.date;
+            modal.querySelector(".modal-body .mb-3:nth-child(3) a").textContent =
+                data.supplier;
 
             // Update status badge
-            const badge = modal.querySelector('.badge');
+            const badge = modal.querySelector(".badge");
             badge.textContent = data.status;
             badge.className = data.statusClass;
 
             // Update amounts in summary
-            const totalAmount = modal.querySelector('tr:nth-child(5) td.text-end');
+            const totalAmount = modal.querySelector(
+                "tr:nth-child(5) td.text-end"
+            );
             totalAmount.textContent = data.amount;
         }
     });
 </script>
 <script>
-    // Add after existing script
-    document.addEventListener('DOMContentLoaded', function() {
-        // Chỉ chọn các link mã đơn hàng (có class text-primary trong cột mã hóa đơn)
-        document.querySelectorAll('td.text-start a.text-primary').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const modal = new bootstrap.Modal(document.getElementById('orderDetailModal'));
-                modal.show();
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lấy ngôi sao ở header và tất cả ngôi sao trong tbody
+        const headerStar = document.querySelector("thead th:nth-child(2)");
+        const rowStars = document.querySelectorAll(
+            "tbody tr td:nth-child(2) i"
+        );
+
+        // Thêm ngôi sao vào header nếu chưa có
+        if (!headerStar.querySelector("i")) {
+            headerStar.innerHTML =
+                '<i class="bi bi-star text-warning header-star"></i>';
+        }
+
+        // Lấy reference tới ngôi sao header
+        const headerStarIcon = headerStar.querySelector("i");
+
+        // Xử lý click vào ngôi sao header
+        headerStarIcon.addEventListener("click", function () {
+            const isHeaderStarFilled = this.classList.contains("bi-star-fill");
+
+            // Toggle star trong header
+            if (isHeaderStarFilled) {
+                this.classList.remove("bi-star-fill");
+                this.classList.add("bi-star");
+            } else {
+                this.classList.remove("bi-star");
+                this.classList.add("bi-star-fill");
+            }
+
+            // Toggle tất cả stars trong tbody
+            rowStars.forEach((star) => {
+                if (isHeaderStarFilled) {
+                    star.classList.remove("bi-star-fill");
+                    star.classList.add("bi-star");
+                } else {
+                    star.classList.remove("bi-star");
+                    star.classList.add("bi-star-fill");
+                }
+
+                // Lưu trạng thái vào localStorage
+                const orderId = star.closest("tr").querySelector("a").textContent;
+                localStorage.setItem(`favorite_${orderId}`, !isHeaderStarFilled);
             });
         });
+
+        // Xử lý click cho từng ngôi sao trong tbody
+        rowStars.forEach((star) => {
+            star.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Toggle class của ngôi sao được click
+                if (this.classList.contains("bi-star-fill")) {
+                    this.classList.remove("bi-star-fill");
+                    this.classList.add("bi-star");
+                } else {
+                    this.classList.remove("bi-star");
+                    this.classList.add("bi-star-fill");
+                }
+
+                // Lưu trạng thái vào localStorage
+                const orderId = this.closest("tr").querySelector("a").textContent;
+                const isFavorite = this.classList.contains("bi-star-fill");
+                localStorage.setItem(`favorite_${orderId}`, isFavorite);
+
+                // Cập nhật trạng thái header star
+                updateHeaderStar();
+            });
+
+            // Khôi phục trạng thái từ localStorage
+            const orderId = star.closest("tr").querySelector("a").textContent;
+            const isFavorite =
+                localStorage.getItem(`favorite_${orderId}`) === "true";
+            if (isFavorite) {
+                star.classList.remove("bi-star");
+                star.classList.add("bi-star-fill");
+            }
+        });
+
+        // Hàm cập nhật trạng thái header star
+        function updateHeaderStar() {
+            const allStarsFilled = Array.from(rowStars).every((star) =>
+                star.classList.contains("bi-star-fill")
+            );
+
+            if (allStarsFilled) {
+                headerStarIcon.classList.remove("bi-star");
+                headerStarIcon.classList.add("bi-star-fill");
+            } else {
+                headerStarIcon.classList.remove("bi-star-fill");
+                headerStarIcon.classList.add("bi-star");
+            }
+        }
+
+        // Cập nhật trạng thái header star khi load trang
+        updateHeaderStar();
+    });
+</script>
+
+<script>
+    // Add after existing script
+    document.addEventListener("DOMContentLoaded", function () {
+        // Chỉ chọn các link mã đơn hàng (có class text-primary trong cột mã hóa đơn)
+        document
+            .querySelectorAll("td.text-start a.text-primary")
+            .forEach((link) => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const modal = new bootstrap.Modal(
+                        document.getElementById("orderDetailModal")
+                    );
+                    modal.show();
+                });
+            });
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Handle status change
-        const statusSelect = document.getElementById('statusSelect');
-        statusSelect.addEventListener('change', function() {
+        const statusSelect = document.getElementById("statusSelect");
+        statusSelect.addEventListener("change", function () {
             const selectedOption = this.options[this.selectedIndex];
             const status = selectedOption.textContent;
             const value = selectedOption.value;
 
             // Update badge in table
-            const currentRow = document.querySelector(`td a[data-id="${currentOrderId}"]`).closest('tr');
-            const badge = currentRow.querySelector('.badge');
+            const currentRow = document
+                .querySelector(`td a[data-id="${currentOrderId}"]`)
+                .closest("tr");
+            const badge = currentRow.querySelector(".badge");
 
             // Remove old classes and add new ones
             badge.className = `badge bg-${value}`;
             badge.textContent = status;
 
             // Optional: Add confirmation for certain status changes
-            if(value === 'cancelled') {
-                if(!confirm('Bạn có chắc muốn hủy đơn nhập này?')) {
-                    this.value = this.getAttribute('data-original-value');
+            if (value === "cancelled") {
+                if (!confirm("Bạn có chắc muốn hủy đơn nhập này?")) {
+                    this.value = this.getAttribute("data-original-value");
                     return;
                 }
             }
 
             // Store original value for cancellation
-            this.setAttribute('data-original-value', value);
+            this.setAttribute("data-original-value", value);
         });
     });
 
     // Add to your existing status change handler
-    document.addEventListener('DOMContentLoaded', function() {
-        const statusSelect = document.getElementById('statusSelect');
+    document.addEventListener("DOMContentLoaded", function () {
+        const statusSelect = document.getElementById("statusSelect");
 
         // Set initial colors
         updateSelectStyle(statusSelect);
 
-        statusSelect.addEventListener('change', function() {
+        statusSelect.addEventListener("change", function () {
             updateSelectStyle(this);
         });
 
@@ -522,27 +635,33 @@
             const value = selectedOption.value;
 
             // Set CSS variables for the select element
-            select.style.setProperty('--status-bg', getComputedStyle(selectedOption).backgroundColor);
-            select.style.setProperty('--status-text', getComputedStyle(selectedOption).color);
+            select.style.setProperty(
+                "--status-bg",
+                getComputedStyle(selectedOption).backgroundColor
+            );
+            select.style.setProperty(
+                "--status-text",
+                getComputedStyle(selectedOption).color
+            );
         }
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Get modal and buttons
-        const modal = document.getElementById('orderDetailModal');
-        const openButton = modal.querySelector('.btn-success');
-        const saveButton = modal.querySelector('.btn-primary');
-        const returnButton = modal.querySelector('.btn-info');
-        const printButton = modal.querySelector('.btn-secondary');
-        const cancelButton = modal.querySelector('.btn-danger');
+        const modal = document.getElementById("orderDetailModal");
+        const openButton = modal.querySelector(".btn-success");
+        const saveButton = modal.querySelector(".btn-primary");
+        const returnButton = modal.querySelector(".btn-info");
+        const printButton = modal.querySelector(".btn-secondary");
+        const cancelButton = modal.querySelector(".btn-danger");
 
         // Mở phiếu button
-        openButton.addEventListener('click', function() {
+        openButton.addEventListener("click", function () {
             const orderId = modal.querySelector('input[value^="HD"]').value;
-            const status = modal.querySelector('#statusSelect').value;
+            const status = modal.querySelector("#statusSelect").value;
 
-            if (status === 'completed' || status === 'cancelled') {
-                alert('Không thể mở phiếu đã hoàn thành hoặc đã hủy!');
+            if (status === "completed" || status === "cancelled") {
+                alert("Không thể mở phiếu đã hoàn thành hoặc đã hủy!");
                 return;
             }
 
@@ -551,38 +670,38 @@
         });
 
         // Lưu button
-        saveButton.addEventListener('click', function() {
-            const status = modal.querySelector('#statusSelect').value;
+        saveButton.addEventListener("click", function () {
+            const status = modal.querySelector("#statusSelect").value;
 
-            if (status === 'cancelled') {
-                alert('Không thể lưu phiếu đã hủy!');
+            if (status === "cancelled") {
+                alert("Không thể lưu phiếu đã hủy!");
                 return;
             }
 
             // Validate changes
-            if (confirm('Bạn có chắc muốn lưu các thay đổi?')) {
-                alert('Đã lưu thay đổi thành công!');
+            if (confirm("Bạn có chắc muốn lưu các thay đổi?")) {
+                alert("Đã lưu thay đổi thành công!");
                 // Here you would save changes to database
             }
         });
 
         // Trả hàng nhập button
-        returnButton.addEventListener('click', function() {
-            const status = modal.querySelector('#statusSelect').value;
+        returnButton.addEventListener("click", function () {
+            const status = modal.querySelector("#statusSelect").value;
 
-            if (status !== 'completed') {
-                alert('Chỉ có thể trả hàng cho phiếu đã nhập hoàn tất!');
+            if (status !== "completed") {
+                alert("Chỉ có thể trả hàng cho phiếu đã nhập hoàn tất!");
                 return;
             }
 
-            if (confirm('Bạn có chắc muốn tạo phiếu trả hàng nhập?')) {
+            if (confirm("Bạn có chắc muốn tạo phiếu trả hàng nhập?")) {
                 // Here you would create return order
-                alert('Đã tạo phiếu trả hàng nhập mới!');
+                alert("Đã tạo phiếu trả hàng nhập mới!");
             }
         });
 
         // In đơn button
-        printButton.addEventListener('click', function() {
+        printButton.addEventListener("click", function () {
             const orderId = modal.querySelector('input[value^="HD"]').value;
 
             // Here you would generate and print document
@@ -591,20 +710,20 @@
         });
 
         // Hủy đơn button
-        cancelButton.addEventListener('click', function() {
-            const status = modal.querySelector('#statusSelect').value;
+        cancelButton.addEventListener("click", function () {
+            const status = modal.querySelector("#statusSelect").value;
 
-            if (status === 'completed') {
-                alert('Không thể hủy phiếu đã hoàn thành!');
+            if (status === "completed") {
+                alert("Không thể hủy phiếu đã hoàn thành!");
                 return;
             }
 
-            if (confirm('Bạn có chắc muốn hủy phiếu nhập này?')) {
-                const reason = prompt('Vui lòng nhập lý do hủy:');
+            if (confirm("Bạn có chắc muốn hủy phiếu nhập này?")) {
+                const reason = prompt("Vui lòng nhập lý do hủy:");
                 if (reason) {
                     // Here you would update order status
-                    modal.querySelector('#statusSelect').value = 'cancelled';
-                    alert('Đã hủy phiếu nhập!');
+                    modal.querySelector("#statusSelect").value = "cancelled";
+                    alert("Đã hủy phiếu nhập!");
                 }
             }
         });
@@ -612,14 +731,14 @@
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Get buttons
-        const importButton = document.querySelector('.btn.btn-success'); // Nhập hàng button
-        const exportButton = document.querySelector('.btn.btn-primary'); // Xuất file button
-        const moreButton = document.querySelector('.btn-group .btn.btn-light'); // More options button
+        const importButton = document.querySelector(".btn.btn-success"); // Nhập hàng button
+        const exportButton = document.querySelector(".btn.btn-primary"); // Xuất file button
+        const moreButton = document.querySelector(".btn-group .btn.btn-light"); // More options button
 
         // Nhập hàng button
-        importButton.addEventListener('click', function() {
+        importButton.addEventListener("click", function () {
             // Create new import form modal
             const formHtml = `
                   <div class="modal fade" id="newImportModal">
@@ -658,74 +777,295 @@
                       </div>
                   </div>
               `;
-            document.body.insertAdjacentHTML('beforeend', formHtml);
-            const modal = new bootstrap.Modal(document.getElementById('newImportModal'));
+            document.body.insertAdjacentHTML("beforeend", formHtml);
+            const modal = new bootstrap.Modal(
+                document.getElementById("newImportModal")
+            );
             modal.show();
-        });
 
-        // Xuất file button
-        exportButton.addEventListener('click', function() {
-            const dropdown = `
-                  <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#" onclick="exportToExcel()">
-                          <i class="bi bi-file-excel me-2"></i>Xuất Excel
-                      </a>
-                      <a class="dropdown-item" href="#" onclick="exportToPDF()">
-                          <i class="bi bi-file-pdf me-2"></i>Xuất PDF
-                      </a>
-                      <a class="dropdown-item" href="#" onclick="exportToCSV()">
-                          <i class="bi bi-file-text me-2"></i>Xuất CSV
-                      </a>
-                  </div>
-              `;
-            this.insertAdjacentHTML('afterend', dropdown);
-            // Toggle dropdown manually
-            exportButton.insertAdjacentHTML('afterend', dropdown);
         });
 
         // More options button
-        const moreOptions = `
-              <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#"><i class="bi bi-arrow-clockwise me-2"></i>Làm mới</a>
-                  <a class="dropdown-item" href="#"><i class="bi bi-funnel me-2"></i>Lọc nâng cao</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Cài đặt hiển thị</a>
-              </div>
-          `;
-        moreButton.insertAdjacentHTML('afterend', moreOptions);
+
+
+    });
+    // Nút xuất file
+    document.addEventListener("DOMContentLoaded", function() {
+        const exportButton = document.querySelector(".btn.btn-primary");
+
+        // Sửa lại text và icon của button
+        exportButton.innerHTML = '<i class="bi bi-file-excel me-2"></i>Xuất Excel';
+
+
+        // Thêm sự kiện click cho nút xuất Excel
+        exportButton.addEventListener("click", function() {
+            try {
+                // Lấy dữ liệu từ bảng
+                const tableData = [];
+                const headers = ["Mã nhập hàng", "Thời gian", "Nhà cung cấp", "Cần trả NCC", "Trạng thái"];
+
+                // Lấy tất cả các dòng từ tbody
+                const rows = document.querySelectorAll("tbody tr");
+
+                rows.forEach(row => {
+                    // Kiểm tra row có hiển thị không
+                    if (row.style.display !== 'none') {
+                        const columns = row.querySelectorAll('td');
+                        if (columns.length >= 7) { // Đảm bảo đủ số cột
+                            const rowData = {
+                                code: columns[2].querySelector('a')?.textContent?.trim() || '',
+                                date: columns[3].textContent?.trim() || '',
+                                supplier: columns[4].textContent?.trim() || '',
+                                amount: columns[5].textContent?.trim() || '',
+                                status: columns[6].querySelector('.badge')?.textContent?.trim() || ''
+                            };
+                            tableData.push(rowData);
+                        }
+                    }
+                });
+
+                // Kiểm tra có dữ liệu không
+                if (tableData.length === 0) {
+                    alert('Không có dữ liệu để xuất!');
+                    return;
+                }
+
+                // Tạo nội dung file Excel với định dạng UTF-8
+                let csvContent = "\uFEFF"; // Thêm BOM để Excel hiển thị tiếng Việt đúng
+                csvContent += headers.join(",") + "\n";
+
+                tableData.forEach(row => {
+                    const rowArray = [row.code, row.date, row.supplier, row.amount, row.status];
+                    csvContent += rowArray.join(",") + "\n";
+                });
+
+                // Tạo blob với encoding UTF-8
+                const blob = new Blob([csvContent], {
+                    type: "application/vnd.ms-excel;charset=utf-8"
+                });
+
+                // Tạo link download
+                const url = window.URL.createObjectURL(blob);
+                const downloadLink = document.createElement("a");
+                const date = new Date();
+                const fileName = `Danh_sach_nhap_hang.xls`;
+
+                downloadLink.href = url;
+                downloadLink.download = fileName;
+
+                // Trigger click để tải file
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+
+                // Cleanup
+                document.body.removeChild(downloadLink);
+                window.URL.revokeObjectURL(url);
+
+            } catch (error) {
+                console.error("Lỗi xuất Excel:", error);
+                alert("Có lỗi xảy ra khi xuất file Excel!");
+            }
+        });
     });
 
-    // Helper functions for export
-    function exportToExcel() {
-        alert('Đang xuất file Excel...');
-        // Add Excel export logic here
-    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Lấy reference đến nút More options và dropdown menu
+        const moreButton = document.querySelector(".btn-group .btn.btn-light");
 
-    function exportToPDF() {
-        alert('Đang xuất file PDF...');
-        // Add PDF export logic here
-    }
+        // Tạo dropdown menu cho More options
+        const moreOptions = `
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#" data-action="refresh">
+        <i class="bi bi-arrow-clockwise me-2"></i>Làm mới
+      </a>
+      <a class="dropdown-item" href="#" data-action="filter">
+        <i class="bi bi-funnel me-2"></i>Lọc nâng cao
+      </a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#" data-action="settings">
+        <i class="bi bi-gear me-2"></i>Cài đặt hiển thị
+      </a>
+    </div>
+  `;
 
-    function exportToCSV() {
-        alert('Đang xuất file CSV...');
-        // Add CSV export logic here
-    }
+        // Thêm dropdown menu vào sau nút
+        moreButton.insertAdjacentHTML("afterend", moreOptions);
 
-    // Function to create new import
-    function createNewImport() {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('newImportModal'));
-        alert('Đã tạo phiếu nhập mới!');
-        modal.hide();
-        // Add logic to create new import here
-    }
+        // Xử lý sự kiện click cho các options
+        const dropdownMenu = moreButton.nextElementSibling;
+        dropdownMenu.addEventListener("click", function(e) {
+            e.preventDefault();
+            const action = e.target.closest(".dropdown-item")?.dataset.action;
+
+            if (!action) return;
+
+            switch(action) {
+                case "refresh":
+                    handleRefresh();
+                    break;
+                case "filter":
+                    showAdvancedFilter();
+                    break;
+                case "settings":
+                    showDisplaySettings();
+                    break;
+            }
+        });
+
+        // Hàm xử lý làm mới dữ liệu
+        function handleRefresh() {
+            // Hiển thị loading spinner
+            const tableBody = document.querySelector("tbody");
+            tableBody.innerHTML = `
+      <tr>
+        <td colspan="7" class="text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Đang tải...</span>
+          </div>
+        </td>
+      </tr>
+    `;
+
+            // Giả lập API call
+            setTimeout(() => {
+                location.reload();
+            }, 100);
+        }
+
+        // Hàm hiển thị form lọc nâng cao
+        function showAdvancedFilter() {
+            const filterModal = `
+      <div class="modal fade" id="advancedFilterModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Lọc nâng cao</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">Thời gian</label>
+                <div class="input-group">
+                  <input type="date" class="form-control" id="startDate">
+                  <span class="input-group-text">đến</span>
+                  <input type="date" class="form-control" id="endDate">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Trạng thái</label>
+                <select class="form-select" multiple>
+                  <option value="waiting">Chờ nhập hàng</option>
+                  <option value="importing">Đang nhập hàng</option>
+                  <option value="completed">Đã nhập hàng</option>
+                  <option value="cancelled">Đã hủy</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Nhà cung cấp</label>
+                <select class="form-select" multiple>
+                  <option>Đại lý Hồng Phúc</option>
+                  <option>Công ty Pharmedic</option>
+                  <option>Cửa hàng Đại Việt</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+              <button class="btn btn-primary" onclick="applyFilter()">Áp dụng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+            // Thêm modal vào DOM nếu chưa có
+            if (!document.getElementById("advancedFilterModal")) {
+                document.body.insertAdjacentHTML("beforeend", filterModal);
+            }
+
+            // Hiển thị modal
+            const modal = new bootstrap.Modal(document.getElementById("advancedFilterModal"));
+            modal.show();
+        }
+
+        // Hàm hiển thị cài đặt hiển thị
+        function showDisplaySettings() {
+            const settingsModal = `
+      <div class="modal fade" id="displaySettingsModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Cài đặt hiển thị</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">Số dòng hiển thị</label>
+                <select class="form-select">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                  <option>100</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Cột hiển thị</label>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="showCode" checked>
+                  <label class="form-check-label" for="showCode">Mã nhập hàng</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="showDate" checked>
+                  <label class="form-check-label" for="showDate">Thời gian</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="showSupplier" checked>
+                  <label class="form-check-label" for="showSupplier">Nhà cung cấp</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="showAmount" checked>
+                  <label class="form-check-label" for="showAmount">Cần trả NCC</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="showStatus" checked>
+                  <label class="form-check-label" for="showStatus">Trạng thái</label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+              <button class="btn btn-primary" onclick="applySettings()">Áp dụng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+            // Thêm modal vào DOM nếu chưa có
+            if (!document.getElementById("displaySettingsModal")) {
+                document.body.insertAdjacentHTML("beforeend", settingsModal);
+            }
+
+            // Hiển thị modal
+            const modal = new bootstrap.Modal(document.getElementById("displaySettingsModal"));
+            modal.show();
+        }
+    });
 </script>
 // Modal
 <div class="modal fade" id="orderDetailModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header ">
+            <div class="modal-header">
                 <h5 class="modal-title">Chi tiết đơn nhập</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
             </div>
             <div class="modal-body">
                 <div class="row g-4">
@@ -733,21 +1073,41 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label class="form-label">Mã đơn nhập:</label>
-                            <input type="text" class="form-control" value="HD000045" readonly>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    value="HD000045"
+                                    readonly
+                            />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Thời gian:</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" value="14/04/2025 08:33" readonly>
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        value="14/04/2025 08:33"
+                                        readonly
+                                />
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nhà cung cấp:</label>
-                            <input type="text" class="form-control" value="Cửa hàng Đại Việt" readonly>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    value="Cửa hàng Đại Việt"
+                                    readonly
+                            />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Người tạo: </label>
-                            <input type="text" class="form-control" value="Trần Trung Kiên" readonly>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    value="Trần Trung Kiên"
+                                    readonly
+                            />
                         </div>
                     </div>
 
@@ -756,20 +1116,40 @@
                         <div class="mb-3">
                             <label class="form-label">Trạng thái:</label>
                             <select class="form-select" id="statusSelect">
-                                <option value="waiting" class="text-warning">Chờ nhận hàng</option>
-                                <option value="confirmed" class="text-info">Đã xác nhận</option>
-                                <option value="importing" class="text-primary">Đang nhập hàng</option>
-                                <option value="completed" class="text-success">Đã nhập hàng</option>
-                                <option value="cancelled" class="text-danger">Đã hủy</option>
+                                <option value="waiting" class="text-warning">
+                                    Chờ nhận hàng
+                                </option>
+                                <option value="confirmed" class="text-info">
+                                    Đã xác nhận
+                                </option>
+                                <option value="importing" class="text-primary">
+                                    Đang nhập hàng
+                                </option>
+                                <option value="completed" class="text-success">
+                                    Đã nhập hàng
+                                </option>
+                                <option value="cancelled" class="text-danger">
+                                    Đã hủy
+                                </option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Chi nhánh:</label>
-                            <input type="text" class="form-control" value="Chi nhánh trung tâm" readonly>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    value="Chi nhánh trung tâm"
+                                    readonly
+                            />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Người nhập:</label>
-                            <input type="text" class="form-control" value="Trần Trung Kiên" readonly>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    value="Trần Trung Kiên"
+                                    readonly
+                            />
                         </div>
                     </div>
                 </div>
