@@ -54,125 +54,7 @@
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
-        <li class="nav-item dropdown">
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-          </ul><!-- End Notification Dropdown Items -->
-        </li><!-- End Notification Nav -->
-        <li class="nav-item dropdown">
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
-          </ul><!-- End Messages Dropdown Items -->
-        </li><!-- End Messages Nav -->
+
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
@@ -430,10 +312,6 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#" onclick="setDateRange('today')">Hôm nay</a></li>
                   <li><a class="dropdown-item" href="#" onclick="setDateRange('yesterday')">Hôm qua</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="setDateRange('thisWeek')">Tuần này</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="setDateRange('lastWeek')">Tuần trước</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="setDateRange('thisMonth')">Tháng này</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="setDateRange('lastMonth')">Tháng trước</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#" onclick="setDateRange('last7Days')">7 ngày qua</a></li>
                   <li><a class="dropdown-item" href="#" onclick="setDateRange('last30Days')">30 ngày qua</a></li>
@@ -475,7 +353,23 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Dữ liệu sản phẩm sẽ được render bằng JavaScript, không có dữ liệu mẫu cứng ở đây -->
+                <!-- Sản phẩm mẫu -->
+                <tr>
+                  <td>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input product-checkbox" title="Chọn sản phẩm này">
+                    </div>
+                  </td>
+                  <td><i class="bi bi-star star-outline text-warning" title="Đánh dấu sản phẩm"></i></td>
+                  <td>SP000006</td>
+                  <td>Robot đồ chơi thông minh</td>
+                  <td class="text-end">2,500,000</td>
+                  <td class="text-end">2,000,000</td>
+                  <td class="text-end">15</td>
+                  <td class="text-center"><span class="badge bg-success">Còn hàng</span></td>
+                  <td class="text-center"><span class="badge bg-success">Kinh doanh</span></td>
+                  <td>10/05/2025 14:00</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -744,102 +638,7 @@
 
   </main><!-- End #main -->
   <script>
-    // 5 sản phẩm mẫu
-    let products = [
-      {
-        code: 'SP000001',
-        name: 'Xe đạp trẻ em',
-        price: 1200000,
-        cost: 900000,
-        stock: 10,
-        barcode: '8931234567890',
-        category: 'Đồ chơi vận động',
-        supplier: 'NCC1',
-        description: 'Xe đạp trẻ em 3 bánh, màu xanh.',
-        orderNote: '',
-        status: '<span class="badge bg-success">Còn hàng</span>',
-        business: '<span class="badge bg-success">Kinh doanh</span>',
-        created: '01/06/2024 09:00',
-        star: false,
-        images: [],
-        checked: false
-      },
-      {
-        code: 'SP000002',
-        name: 'Búp bê Barbie',
-        price: 350000,
-        cost: 200000,
-        stock: 5,
-        barcode: '8931234567891',
-        category: 'Đồ chơi trẻ em',
-        supplier: 'NCC2',
-        description: 'Búp bê Barbie chính hãng.',
-        orderNote: '',
-        status: '<span class="badge bg-success">Còn hàng</span>',
-        business: '<span class="badge bg-success">Kinh doanh</span>',
-        created: '02/06/2024 10:30',
-        star: false,
-        images: [],
-        checked: false
-      },
-      {
-        code: 'SP000003',
-        name: 'Bộ xếp hình Lego',
-        price: 800000,
-        cost: 600000,
-        stock: 0,
-        barcode: '8931234567892',
-        category: 'Đồ chơi xếp hình',
-        supplier: 'NCC3',
-        description: 'Bộ xếp hình Lego 500 chi tiết.',
-        orderNote: '',
-        status: '<span class="badge bg-danger">Hết hàng</span>',
-        business: '<span class="badge bg-danger">Ngừng KD</span>',
-        created: '03/06/2024 14:15',
-        star: false,
-        images: [],
-        checked: false
-      },
-      {
-        code: 'SP000004',
-        name: 'Đàn piano điện tử',
-        price: 1500000,
-        cost: 1200000,
-        stock: 3,
-        barcode: '8931234567893',
-        category: 'Đồ chơi điện tử',
-        supplier: 'NCC1',
-        description: 'Đàn piano điện tử cho bé.',
-        orderNote: '',
-        status: '<span class="badge bg-success">Còn hàng</span>',
-        business: '<span class="badge bg-success">Kinh doanh</span>',
-        created: '04/06/2024 16:00',
-        star: false,
-        images: [],
-        checked: false
-      },
-      {
-        code: 'SP000005',
-        name: 'Bảng vẽ thông minh',
-        price: 450000,
-        cost: 300000,
-        stock: 7,
-        barcode: '8931234567894',
-        category: 'Đồ chơi nghệ thuật',
-        supplier: 'NCC2',
-        description: 'Bảng vẽ thông minh cho bé sáng tạo.',
-        orderNote: '',
-        status: '<span class="badge bg-success">Còn hàng</span>',
-        business: '<span class="badge bg-success">Kinh doanh</span>',
-        created: '05/06/2024 11:45',
-        star: false,
-        images: [],
-        checked: false
-      }
-    ];
-
-    // Không dùng localStorage nữa, xóa các hàm loadProductsFromStorage, saveProductsToStorage và các chỗ gọi tới chúng
-    // Khi load trang chỉ cần renderProductTable();
+    
     window.addEventListener('DOMContentLoaded', function() {
       renderProductTable();
       // Initialize modals
@@ -1425,23 +1224,7 @@
           startDate = new Date(today.setDate(today.getDate() - 1));
           endDate = new Date(startDate);
           break;
-        case 'thisWeek':
-          startDate = new Date(today.setDate(today.getDate() - today.getDay()));
-          endDate = new Date();
-          break;
-        case 'lastWeek':
-          startDate = new Date(today.setDate(today.getDate() - today.getDay() - 7));
-          endDate = new Date(startDate);
-          endDate.setDate(endDate.getDate() + 6);
-          break;
-        case 'thisMonth':
-          startDate = new Date(today.getFullYear(), today.getMonth(), 1);
-          endDate = new Date();
-          break;
-        case 'lastMonth':
-          startDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-          endDate = new Date(today.getFullYear(), today.getMonth(), 0);
-          break;
+
         case 'last7Days':
           startDate = new Date(today.setDate(today.getDate() - 7));
           endDate = new Date();
@@ -1903,7 +1686,9 @@
         confirmMessage += `\n(${invalidCount} sản phẩm hết hàng sẽ không được thay đổi trạng thái)`;
       }
 
-      if (!confirm(confirmMessage)) return;
+      if (!confirm(confirmMessage)) {
+        return;
+      }
 
       validProducts.forEach(p => {
         p.business = '<span class="badge bg-success">Kinh doanh</span>';
@@ -1939,6 +1724,7 @@
       border: none !important;
     }
     .table {
+      display: table;
       border-radius: 12px !important;
       overflow: hidden;
       background: #fff;

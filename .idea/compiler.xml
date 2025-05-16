@@ -10,5 +10,8 @@
         <module name="Aishiba" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
