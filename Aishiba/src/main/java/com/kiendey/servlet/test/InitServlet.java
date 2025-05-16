@@ -3,6 +3,7 @@ package com.kiendey.servlet.test;
 import com.kiendey.model.Permission;
 import com.kiendey.model.Role;
 import com.kiendey.model.User;
+import com.kiendey.utils.PasswordUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -89,6 +90,10 @@ public class InitServlet extends HttpServlet {
                 //ID tự sinh UUID
                 user.setName("Kien01");
                 user.setRole(userRole);
+                String plainPassword = "password123";
+                String hashedPassword = PasswordUtil.hashPassword(plainPassword);
+                user.setPassword(hashedPassword);
+
                 em.merge(user);
             } else {
                 // Nếu đã tồn tại, cập nhật
