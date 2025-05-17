@@ -20,11 +20,6 @@ public class Category extends AbstractEntity<String> {
 
     @OneToMany(mappedBy = "category")
     List<Toy> toys;
+    //Mennu 1 cấp nên ko có quan hệ parent-child
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id") // Cột khóa ngoại trỏ đến danh mục cha
-    Category parent;  // Danh mục cha
-
-    @OneToMany(mappedBy = "parent")  // Danh sách các danh mục con
-    List<Category> children = new ArrayList<>(); // Khởi tạo để tránh NullPointerException
 }

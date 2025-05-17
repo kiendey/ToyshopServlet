@@ -126,7 +126,7 @@
         </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-login.html">
+            <a class="nav-link collapsed" href="login">
                 <i class="bi bi-box-arrow-in-right fs-5"></i>
                 <span>Đăng nhập</span>
             </a>

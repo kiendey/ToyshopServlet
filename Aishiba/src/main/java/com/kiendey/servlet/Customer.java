@@ -13,29 +13,29 @@ public class Customer extends  HttpServlet{
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
         //Call jsp files
-        RequestDispatcher head = req.getRequestDispatcher("/head.jsp");
-        if (head != null){
-            head.include(req, resp);
-        }
-        RequestDispatcher header = req.getRequestDispatcher("/header.jsp");
-        if (header != null){
-            header.include(req, resp);
-        }
-        RequestDispatcher sidebar = req.getRequestDispatcher("/sidebar.jsp");
-        if (sidebar != null){
-            sidebar.include(req, resp);
-        }
+//        RequestDispatcher head = req.getRequestDispatcher("/head.jsp");
+//        if (head != null){
+//            head.include(req, resp);
+//        }
+//        RequestDispatcher header = req.getRequestDispatcher("/header.jsp");
+//        if (header != null){
+//            header.include(req, resp);
+//        }
+//        RequestDispatcher sidebar = req.getRequestDispatcher("/sidebar.jsp");
+//        if (sidebar != null){
+//            sidebar.include(req, resp);
+//        }
         RequestDispatcher customer = req.getRequestDispatcher("/customer.jsp");
         if (customer != null){
             customer.include(req, resp);
         }
-        RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
-        if (footer != null){
-            footer.include(req, resp);
-        }
-        RequestDispatcher end = req.getRequestDispatcher("/end.jsp");
-        if (end != null){
-            end.include(req, resp);
-        }
+//        RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
+//        if (footer != null){
+//            footer.include(req, resp);
+//        }
+//        RequestDispatcher end = req.getRequestDispatcher("/end.jsp");
+//        if (end != null){
+//            end.include(req, resp);
+//        }
     }
 }
