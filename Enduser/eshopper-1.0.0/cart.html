@@ -26,8 +26,39 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-light sticky-top">
+    <style>
+        .sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Đảm bảo danh mục hiển thị phía trên */
+    #navbar-vertical {
+        position: absolute;
+        top: 65px; /* Đặt vị trí ngay dưới thanh navbar */
+        left: 0;
+        z-index: 1050; /* Đảm bảo nó hiển thị trên các phần tử khác */
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Khi danh mục được mở */
+    #navbar-vertical.show {
+        display: block;
+    }
+
+    /* Đảm bảo các phần tử khác không bị che */
+    .container-fluid {
+        position: relative;
+    }
+    </style>
+    <div class="sticky-top">
+        <!-- Topbar Start -->
+    <div class="container-fluid bg-light">
         <div class="row py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
@@ -38,24 +69,30 @@
                     <a class="text-dark" href="">Hỗ trợ</a>
                 </div>
             </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-dark pl-2" href="">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
+        </div>
+        <div class="row align-items-center py-3 px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a href="index.html" class="text-decoration-none">
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><img src="img/logo.png" height="42" alt="Aishiba"> <span class="text-primary">Aishiba</span></h1>
+                </a>
+            </div>
+            <div class="col-lg-6 col-6 text-left">
+                <form id="searchForm" action="shop.html" method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text bg-transparent text-primary" id="searchBtn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 col-6 text-right">
+                <a href="cart.html" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span id="cartCount" class="badge">0</span>
+                </a>
             </div>
         </div>
     </div>
@@ -65,21 +102,22 @@
     <div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
-                    data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" 
+                   data-toggle="collapse" href="#navbar-vertical" 
+                   style="height: 65px; margin-top: -1px; padding: 0 30px;">
                     <h6 class="m-0">Danh mục</h6>
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
-                <nav class="collapse navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
-                    id="navbar-vertical">
-                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi trẻ em</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi giáo dục</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi mô hình</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi vận động</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi xếp hình</a>
-                        <a href="shop.html" class="nav-item nav-link">Thú bông</a>
-                        <a href="shop.html" class="nav-item nav-link">Robot</a>
+                <nav class="collapse navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" 
+                     id="navbar-vertical">
+                    <div class="navbar-nav w-100 overflow-hidden" style="height: auto;">
+                        <a href="" class="nav-item nav-link">Đồ chơi trẻ em</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi giáo dục</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi mô hình</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi vận động</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi xếp hình</a>
+                        <a href="" class="nav-item nav-link">Thú bông</a>
+                        <a href="" class="nav-item nav-link">Robot</a>
                     </div>
                 </nav>
             </div>
@@ -93,11 +131,11 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link">Trang chủ</a>
+                            <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
                             <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
                             <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
                         </div>
-                        <div class="navbar-nav ml-auto py-0">
+                        <div class="navbar-nav ml-auto py-0" id="userNav">
                             <a href="login.html" class="nav-item nav-link">
                                 <i class="fa fa-user text-primary mr-2"></i>Đăng nhập
                             </a>
@@ -108,6 +146,7 @@
         </div>
     </div>
     <!-- Navbar End -->
+    </div>
 
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -232,60 +271,173 @@
     <script src="js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // --- Hiển thị sản phẩm từ localStorage ---
             const cartItems = document.getElementById("cartItems");
             const totalElement = document.querySelector(".card-footer .font-weight-bold:last-child");
+            const cartCount = document.getElementById("cartCount");
 
-            // Hàm cập nhật tổng tiền
-            function updateTotal() {
-                let total = 0;
-                cartItems.querySelectorAll("tr").forEach(row => {
-                    const totalCell = row.querySelector(".total");
-                    total += parseInt(totalCell.textContent);
-                });
-                totalElement.textContent = total.toLocaleString() + "₫";
+            // Lấy giỏ hàng từ localStorage
+            function getCart() {
+                return JSON.parse(localStorage.getItem('cart') || '[]');
             }
 
-            // Xử lý tăng số lượng
-            cartItems.addEventListener("click", function (e) {
-                if (e.target.closest(".btn-plus")) {
-                    const row = e.target.closest("tr");
-                    const quantityInput = row.querySelector(".quantity-input");
-                    const price = parseInt(row.querySelector(".price").textContent);
-                    let quantity = parseInt(quantityInput.value);
-                    quantity++;
-                    quantityInput.value = quantity;
-                    row.querySelector(".total").textContent = (quantity * price).toLocaleString();
-                    updateTotal();
-                }
-            });
+            // Lưu giỏ hàng vào localStorage
+            function setCart(cart) {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
 
-            // Xử lý giảm số lượng
+            // Cập nhật số lượng trên icon
+            function updateCartCount() {
+                const cart = getCart();
+                const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                if (cartCount) cartCount.textContent = total;
+            }
+
+            // Hiển thị sản phẩm trong bảng
+            function renderCart() {
+                const cart = getCart();
+                cartItems.innerHTML = '';
+                let subtotal = 0;
+                if (cart.length === 0) {
+                    cartItems.innerHTML = `<tr><td colspan="5">Giỏ hàng trống.</td></tr>`;
+                } else {
+                    cart.forEach((item, idx) => {
+                        const itemTotal = item.price * item.quantity;
+                        subtotal += itemTotal;
+                        cartItems.innerHTML += `
+                            <tr data-id="${idx}">
+                                <td class="align-middle">${item.name}</td>
+                                <td class="align-middle price">${item.price.toLocaleString()}₫</td>
+                                <td class="align-middle">
+                                    <div class="input-group quantity mx-auto" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-primary btn-minus">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm bg-secondary text-center quantity-input"
+                                            value="${item.quantity}">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-primary btn-plus">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="align-middle total">${itemTotal.toLocaleString()}₫</td>
+                                <td class="align-middle"><button class="btn btn-sm btn-primary btn-remove"><i class="fa fa-times"></i>
+                                    </button></td>
+                            </tr>
+                        `;
+                    });
+                }
+                updateSummary(subtotal);
+                updateCartCount();
+            }
+
+            // Cập nhật tổng tiền và tóm tắt giỏ hàng
+            function updateSummary(subtotal) {
+                // Phí vận chuyển cố định 30.000₫ nếu có hàng, 0 nếu trống
+                let shipping = subtotal > 0 ? 30000 : 0;
+                let total = subtotal + shipping;
+
+                // Cập nhật tóm tắt giỏ hàng
+                document.querySelector(".card-body .d-flex.mb-3.pt-1 h6:last-child").textContent = subtotal.toLocaleString() + "₫";
+                document.querySelector(".card-body .d-flex:last-child h6:last-child").textContent = shipping.toLocaleString() + "₫";
+                document.querySelector(".card-footer .font-weight-bold:last-child").textContent = total.toLocaleString() + "₫";
+            }
+
+            // Xử lý tăng/giảm/xóa sản phẩm
             cartItems.addEventListener("click", function (e) {
+                const cart = getCart();
+                const row = e.target.closest("tr");
+                if (!row) return;
+                const idx = parseInt(row.getAttribute("data-id"));
+                if (e.target.closest(".btn-plus")) {
+                    cart[idx].quantity++;
+                    setCart(cart);
+                    renderCart();
+                }
                 if (e.target.closest(".btn-minus")) {
-                    const row = e.target.closest("tr");
-                    const quantityInput = row.querySelector(".quantity-input");
-                    const price = parseInt(row.querySelector(".price").textContent);
-                    let quantity = parseInt(quantityInput.value);
-                    if (quantity > 1) {
-                        quantity--;
-                        quantityInput.value = quantity;
-                        row.querySelector(".total").textContent = (quantity * price).toLocaleString();
-                        updateTotal();
+                    if (cart[idx].quantity > 1) {
+                        cart[idx].quantity--;
+                        setCart(cart);
+                        renderCart();
                     }
                 }
-            });
-
-            // Xử lý xóa sản phẩm
-            cartItems.addEventListener("click", function (e) {
                 if (e.target.closest(".btn-remove")) {
-                    const row = e.target.closest("tr");
-                    row.remove();
-                    updateTotal();
+                    cart.splice(idx, 1);
+                    setCart(cart);
+                    renderCart();
                 }
             });
 
-            // Cập nhật tổng tiền ban đầu
-            updateTotal();
+            // Xử lý nhập số lượng trực tiếp
+            cartItems.addEventListener("change", function (e) {
+                if (e.target.classList.contains("quantity-input")) {
+                    const row = e.target.closest("tr");
+                    const idx = parseInt(row.getAttribute("data-id"));
+                    let val = parseInt(e.target.value) || 1;
+                    if (val < 1) val = 1;
+                    const cart = getCart();
+                    cart[idx].quantity = val;
+                    setCart(cart);
+                    renderCart();
+                }
+            });
+
+            // Khởi tạo giỏ hàng khi tải trang
+            renderCart();
+
+            // --- Đổi màu header cho đồng bộ và userNav ---
+            document.querySelectorAll('.bg-primary').forEach(e => e.style.background = '#D19C97');
+            document.querySelectorAll('.text-primary').forEach(e => e.style.color = '#D19C97');
+            document.querySelectorAll('.badge-primary').forEach(e => e.style.background = '#D19C97');
+            document.querySelectorAll('.nav-link.active').forEach(e => e.style.color = '#D19C97');
+
+            // Hiển thị liên kết user_info nếu đã đăng nhập
+            const userNav = document.getElementById('userNav');
+            const loginData = JSON.parse(localStorage.getItem('rememberLogin') || '{}');
+            const userData = JSON.parse(localStorage.getItem('aishibaUser') || '{}');
+            let isLoggedIn = false;
+            let userName = '';
+
+            if (
+                (loginData.email === 'user1@example.com' && loginData.password === '12345678') ||
+                (loginData.email === 'admin' && loginData.password === '123456') ||
+                (userData.email && loginData.email === userData.email && loginData.password === userData.password)
+            ) {
+                isLoggedIn = true;
+                userName = userData.name || loginData.email;
+            }
+
+            if (isLoggedIn && userNav) {
+                userNav.innerHTML = `
+                    <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
+                        <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
+                    </a>
+                    <a href="#" class="nav-item nav-link" id="logoutNav" style="color:#D19C97;">
+                        <i class="fa fa-sign-out-alt text-primary mr-2"></i>Đăng xuất
+                    </a>
+                `;
+                document.getElementById('logoutNav').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('rememberLogin');
+                    window.location.reload();
+                });
+            }
+        });
+
+        // Thêm chức năng liên kết danh mục tới shop.html và lọc theo danh mục
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
+                link.style.cursor = 'pointer';
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.textContent.trim();
+                    window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+                });
+            });
         });
     </script>
 </body>

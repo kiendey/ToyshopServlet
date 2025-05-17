@@ -245,7 +245,7 @@
 
     <script>
         function handleRegister(event) {
-            event.preventDefault(); // Ngăn chặn form gửi đi
+            event.preventDefault();
 
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -258,15 +258,26 @@
                 alertBox.textContent = 'Vui lòng điền đầy đủ thông tin!';
                 alertBox.classList.remove('d-none', 'alert-success');
                 alertBox.classList.add('alert-danger');
-            } else if (password !== confirmPassword) {
+                return;
+            }
+            if (password !== confirmPassword) {
                 alertBox.textContent = 'Mật khẩu và xác nhận mật khẩu không khớp!';
                 alertBox.classList.remove('d-none', 'alert-success');
                 alertBox.classList.add('alert-danger');
-            } else {
-                alertBox.textContent = 'Đăng ký thành công!';
-                alertBox.classList.remove('d-none', 'alert-danger');
-                alertBox.classList.add('alert-success');
+                return;
             }
+
+            // Lưu tài khoản vào localStorage
+            const user = { name, email, password };
+            localStorage.setItem('aishibaUser', JSON.stringify(user));
+
+            alertBox.textContent = 'Đăng ký thành công! Bạn sẽ được chuyển sang trang đăng nhập.';
+            alertBox.classList.remove('d-none', 'alert-danger');
+            alertBox.classList.add('alert-success');
+
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1200);
         }
     </script>
 </body>

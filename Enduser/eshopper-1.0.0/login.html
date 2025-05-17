@@ -253,6 +253,11 @@
                         <div id="login-alert" class="alert alert-danger d-none" role="alert">
                             Email hoặc mật khẩu không đúng. Vui lòng thử lại!
                         </div>
+                        <!-- Thêm vào trước nút Đăng Nhập -->
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                        </div>
                         <button type="submit" class="btn-login">Đăng Nhập</button>
                         <div class="text-center mt-3">
                             <a href="#" class="text-link" data-toggle="modal" data-target="#forgotPasswordModal">Quên mật khẩu?</a>
@@ -323,63 +328,96 @@
     <script src="js/main.js"></script>
 
     <script>
-    function togglePassword() {
-        const passwordField = document.getElementById('password');
-        const toggleIcon = document.querySelector('.password-toggle');
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            toggleIcon.classList.remove('fa-eye');
-            toggleIcon.classList.add('fa-eye-slash');
-        } else {
-            passwordField.type = 'password';
-            toggleIcon.classList.remove('fa-eye-slash');
-            toggleIcon.classList.add('fa-eye');
-        }
+function togglePassword() {
+    const passwordField = document.getElementById('password');
+    const toggleIcon = document.querySelector('.password-toggle');
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordField.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
     }
+}
 
-    function handleLogin(event) {
-        event.preventDefault();
-
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const alertBox = document.getElementById('login-alert');
-
-        if (email === 'admin' && password === '123456') {
-            alertBox.classList.remove('d-none', 'alert-danger');
-            alertBox.classList.add('alert-success');
-            alertBox.textContent = 'Đăng nhập thành công!';
-        } else {
-            alertBox.classList.remove('d-none', 'alert-success');
-            alertBox.classList.add('alert-danger');
-            alertBox.textContent = 'Email hoặc mật khẩu không đúng. Vui lòng thử lại!';
-        }
+// Tự động điền nếu đã ghi nhớ
+window.addEventListener('DOMContentLoaded', () => {
+    const saved = JSON.parse(localStorage.getItem('rememberLogin') || '{}');
+    if (saved.email && saved.password) {
+        document.getElementById('email').value = saved.email;
+        document.getElementById('password').value = saved.password;
+        document.getElementById('rememberMe').checked = true;
     }
+});
 
-    function handleForgotPassword(event) {
-        event.preventDefault();
+function handleLogin(event) {
+    event.preventDefault();
 
-        const email = document.getElementById('forgot-email').value.trim();
-        const alertBox = document.getElementById('forgot-alert');
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const remember = document.getElementById('rememberMe')?.checked;
+    const alertBox = document.getElementById('login-alert');
 
-        if (email === '') {
-            alertBox.textContent = 'Vui lòng nhập email!';
-            alertBox.classList.remove('d-none', 'alert-success');
-            alertBox.classList.add('alert-danger');
+    // Lấy tài khoản đã đăng ký
+    const user = JSON.parse(localStorage.getItem('aishibaUser') || '{}');
+
+    // Tài khoản mặc định
+    const defaultUser = {
+        email: 'user1@example.com',
+        password: '12345678'
+    };
+
+    if (
+        (email === user.email && password === user.password) ||
+        (email === defaultUser.email && password === defaultUser.password) ||
+        (email === 'admin' && password === '123456')
+    ) {
+        // Lưu thông tin nếu chọn ghi nhớ
+        if (remember) {
+            localStorage.setItem('rememberLogin', JSON.stringify({ email, password }));
         } else {
-            alertBox.textContent = 'Yêu cầu đặt lại mật khẩu đã được gửi!';
-            alertBox.classList.remove('d-none', 'alert-danger');
-            alertBox.classList.add('alert-success');
+            localStorage.removeItem('rememberLogin');
         }
+        alertBox.classList.remove('d-none', 'alert-danger');
+        alertBox.classList.add('alert-success');
+        alertBox.textContent = 'Đăng nhập thành công! Đang chuyển hướng...';
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1200);
+    } else {
+        alertBox.classList.remove('d-none', 'alert-success');
+        alertBox.classList.add('alert-danger');
+        alertBox.textContent = 'Email hoặc mật khẩu không đúng. Vui lòng thử lại!';
     }
+}
 
-    // Reset modal alert mỗi khi mở lại modal
-    $('#forgotPasswordModal').on('show.bs.modal', function () {
-        const alertBox = document.getElementById('forgot-alert');
-        alertBox.classList.add('d-none');
-        alertBox.classList.remove('alert-danger', 'alert-success');
-        alertBox.textContent = '';
-        document.getElementById('forgot-email').value = '';
-    });
+function handleForgotPassword(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('forgot-email').value.trim();
+    const alertBox = document.getElementById('forgot-alert');
+
+    if (email === '') {
+        alertBox.textContent = 'Vui lòng nhập email!';
+        alertBox.classList.remove('d-none', 'alert-success');
+        alertBox.classList.add('alert-danger');
+    } else {
+        alertBox.textContent = 'Yêu cầu đặt lại mật khẩu đã được gửi!';
+        alertBox.classList.remove('d-none', 'alert-danger');
+        alertBox.classList.add('alert-success');
+    }
+}
+
+// Reset modal alert mỗi khi mở lại modal
+$('#forgotPasswordModal').on('show.bs.modal', function () {
+    const alertBox = document.getElementById('forgot-alert');
+    alertBox.classList.add('d-none');
+    alertBox.classList.remove('alert-danger', 'alert-success');
+    alertBox.textContent = '';
+    document.getElementById('forgot-email').value = '';
+});
 </script>
 
 </body>

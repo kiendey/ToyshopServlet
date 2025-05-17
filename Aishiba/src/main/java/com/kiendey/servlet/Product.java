@@ -8,6 +8,20 @@ import java.io.PrintWriter;
 
 @WebServlet("/product")
 public class Product extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        // Initialization code can go here if needed
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        // Cleanup code can go here if needed
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
@@ -26,9 +40,9 @@ public class Product extends HttpServlet {
             sidebar.include(req, resp);
         }
 
-        RequestDispatcher order = req.getRequestDispatcher("/product.jsp");
-        if (order != null){
-            order.include(req, resp);
+        RequestDispatcher product = req.getRequestDispatcher("/product.jsp");
+        if (product != null){
+            product.include(req, resp);
         }
         RequestDispatcher footer = req.getRequestDispatcher("/footer.jsp");
         if (footer != null){

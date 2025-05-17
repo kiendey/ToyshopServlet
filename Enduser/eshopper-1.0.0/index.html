@@ -77,13 +77,13 @@
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
-                <form action="">
+                <form id="searchForm" action="shop.html" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                        <input type="text" class="form-control" id="searchInput" name="q" placeholder="Tìm kiếm sản phẩm...">
                         <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
+                            <button type="submit" class="input-group-text bg-transparent text-primary" id="searchBtn">
                                 <i class="fa fa-search"></i>
-                            </span>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -135,8 +135,8 @@
                             <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
                             <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
                         </div>
-                        <div class="navbar-nav ml-auto py-0">
-                            <a href="login.html" class="nav-item nav-link">
+                        <div class="navbar-nav ml-auto py-0" id="userNav">
+                            <a href="login.html" class="nav-item nav-link" id="loginNav">
                                 <i class="fa fa-user text-primary mr-2"></i>Đăng nhập
                             </a>
                         </div>
@@ -351,6 +351,92 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
+        // Hàm lấy giỏ hàng từ localStorage
+    function getCart() {
+        return JSON.parse(localStorage.getItem('cart') || '[]');
+    }
+
+    // Hàm lưu giỏ hàng vào localStorage
+    function setCart(cart) {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Hàm cập nhật số lượng sản phẩm trên icon giỏ hàng
+    function updateCartCount() {
+        const cart = getCart();
+        const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        const cartCount = document.getElementById('cartCount');
+        if (cartCount) cartCount.textContent = total;
+    }
+
+    // Hàm thêm sản phẩm vào giỏ hàng
+    function addToCart(productName, productPrice) {
+        // Thêm vào localStorage
+        let cart = getCart();
+        let found = false;
+        cart = cart.map(item => {
+            if (item.name === productName) {
+                found = true;
+                return { ...item, quantity: (item.quantity || 1) + 1 };
+            }
+            return item;
+        });
+        if (!found) {
+            cart.push({ name: productName, price: productPrice, quantity: 1 });
+        }
+        setCart(cart);
+        updateCartCount();
+
+        // Hiển thị thông báo và liên kết đến cart
+        Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            html: `Sản phẩm "<b>${productName}</b>" đã được thêm vào giỏ hàng với giá <b>${productPrice.toLocaleString()} VNĐ</b>.<br><br>
+                <a href="cart.html" class="swal2-confirm btn btn-primary" style="margin-top:12px;">Xem giỏ hàng</a>`,
+            showConfirmButton: false,
+            timer: 2200
+        });
+    }
+
+    // Cập nhật số lượng khi tải trang
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCartCount();
+
+        // Hiển thị liên kết user_info nếu đã đăng nhập
+        const userNav = document.getElementById('userNav');
+        const loginData = JSON.parse(localStorage.getItem('rememberLogin') || '{}');
+        const userData = JSON.parse(localStorage.getItem('aishibaUser') || '{}');
+        let isLoggedIn = false;
+        let userName = '';
+
+        // Kiểm tra đăng nhập với tài khoản mặc định hoặc tài khoản đã đăng ký
+        if (
+            (loginData.email === 'user1@example.com' && loginData.password === '12345678') ||
+            (loginData.email === 'admin' && loginData.password === '123456') ||
+            (userData.email && loginData.email === userData.email && loginData.password === userData.password)
+        ) {
+            isLoggedIn = true;
+            userName = userData.name || loginData.email;
+        }
+
+        if (isLoggedIn) {
+            userNav.innerHTML = `
+                <a href="user_info.html" class="nav-item nav-link" id="userInfoNav">
+                    <i class="fa fa-user-circle text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
+                </a>
+                <a href="#" class="nav-item nav-link" id="logoutNav">
+                    <i class="fa fa-sign-out-alt text-primary mr-2"></i>Đăng xuất
+                </a>
+            `;
+            // Xử lý đăng xuất
+            document.getElementById('logoutNav').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('rememberLogin');
+                window.location.reload();
+            });
+        }
+    });
+
         function filterProducts() {
             const selectedCategory = document.getElementById("filterCategory").value;
             const productCards = document.querySelectorAll(".product-item");
@@ -365,17 +451,29 @@
             });
         }
 
-        function addToCart(productName, productPrice) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Thành công!',
-                text: `Sản phẩm "${productName}" đã được thêm vào giỏ hàng với giá ${productPrice.toLocaleString()} VNĐ.`,
-                confirmButtonText: 'OK'
-            });
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const keyword = document.getElementById('searchInput').value.trim();
+            if (keyword) {
+                window.location.href = 'shop.html?q=' + encodeURIComponent(keyword);
+            } else {
+                window.location.href = 'shop.html';
+            }
+        });
 
-            // Thêm logic lưu sản phẩm vào giỏ hàng (localStorage hoặc gửi đến server)
-            console.log(`Sản phẩm "${productName}" đã được thêm vào giỏ hàng.`);
-        }
+    // Thêm sự kiện cho các liên kết danh mục để chuyển sang shop.html và lọc theo danh mục
+    document.addEventListener('DOMContentLoaded', function() {
+        // Gán sự kiện cho các liên kết danh mục
+        document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
+            link.style.cursor = 'pointer';
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const category = this.textContent.trim();
+                // Chuyển sang shop.html với tham số category
+                window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+            });
+        });
+    });
     </script>
 </body>
 

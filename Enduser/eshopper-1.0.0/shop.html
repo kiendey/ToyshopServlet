@@ -26,8 +26,39 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-light sticky-top">
+    <style>
+        .sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Đảm bảo danh mục hiển thị phía trên */
+    #navbar-vertical {
+        position: absolute;
+        top: 65px; /* Đặt vị trí ngay dưới thanh navbar */
+        left: 0;
+        z-index: 1050; /* Đảm bảo nó hiển thị trên các phần tử khác */
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Khi danh mục được mở */
+    #navbar-vertical.show {
+        display: block;
+    }
+
+    /* Đảm bảo các phần tử khác không bị che */
+    .container-fluid {
+        position: relative;
+    }
+    </style>
+    <div class="sticky-top">
+        <!-- Topbar Start -->
+    <div class="container-fluid bg-light">
         <div class="row py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
@@ -38,44 +69,19 @@
                     <a class="text-dark" href="">Hỗ trợ</a>
                 </div>
             </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-dark pl-2" href="">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-            </div>
         </div>
-        <!-- Topbar End -->
-
-        <!-- Navbar Start -->
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="index.html" class="text-decoration-none">
-                    <h1 class="m-0 display-5 font-weight-semi-bold">
-                        <img src="img/logo.png" height="42" alt="Aishiba">
-                        <span class="text-primary">Aishiba</span>
-                    </h1>
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><img src="img/logo.png" height="42" alt="Aishiba"> <span class="text-primary">Aishiba</span></h1>
                 </a>
             </div>
-            <div class="col-lg-6 col-6 text-center">
-                <form>
+            <div class="col-lg-6 col-6 text-left">
+                <form id="searchForm" action="shop.html" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                        <input type="text" class="form-control" id="searchInput" name="q" placeholder="Tìm kiếm sản phẩm...">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit">
+                            <button type="submit" class="input-group-text bg-transparent text-primary" id="searchBtn">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
@@ -87,13 +93,60 @@
                     <i class="fas fa-shopping-cart text-primary"></i>
                     <span id="cartCount" class="badge">0</span>
                 </a>
-                <a href="login.html" class="btn border ml-3">
-                    <i class="fa fa-user text-primary"></i> Đăng nhập
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid mb-5">
+        <div class="row border-top px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" 
+                   data-toggle="collapse" href="#navbar-vertical" 
+                   style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                    <h6 class="m-0">Danh mục</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
                 </a>
+                <nav class="collapse navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" 
+                     id="navbar-vertical">
+                    <div class="navbar-nav w-100 overflow-hidden" style="height: auto;">
+                        <a href="" class="nav-item nav-link">Đồ chơi trẻ em</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi giáo dục</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi mô hình</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi vận động</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi xếp hình</a>
+                        <a href="" class="nav-item nav-link">Thú bông</a>
+                        <a href="" class="nav-item nav-link">Robot</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                    <a href="index.html" class="text-decoration-none d-block d-lg-none">
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary">Aishiba</span></h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="index.html" class="nav-item nav-link">Trang chủ</a>
+                            <a href="shop.html" class="nav-item nav-link active">Cửa hàng</a>
+                            <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0" id="userNav">
+                            <a href="login.html" class="nav-item nav-link">
+                                <i class="fa fa-user text-primary mr-2"></i>Đăng nhập
+                            </a>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
     </div>
     <!-- Navbar End -->
+    </div>
 
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -507,7 +560,288 @@
                 });
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lấy từ khóa tìm kiếm từ URL (nếu có)
+            const params = new URLSearchParams(window.location.search);
+            const keyword = (params.get('q') || '').toLowerCase();
+
+            const searchInput = document.getElementById('searchInput');
+            const clearBtn = document.getElementById('clearSearch');
+
+            // Hiện nút x khi có từ khóa
+            function toggleClearBtn() {
+                if (searchInput.value.trim() !== '') {
+                    clearBtn.style.display = '';
+                } else {
+                    clearBtn.style.display = 'none';
+                }
+            }
+
+            // Hàm hiển thị lại tất cả sản phẩm
+            function showAllProducts() {
+                document.querySelectorAll('.product-item').forEach(card => {
+                    card.style.display = 'block';
+                });
+            }
+
+            // Sự kiện cho nút x
+            clearBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                toggleClearBtn();
+                showAllProducts();
+                const info = document.getElementById('searchResultInfo');
+                if (info) info.innerHTML = '';
+                // Xóa tham số q trên URL nếu có
+                if (window.history.replaceState) {
+                    const url = new URL(window.location);
+                    url.searchParams.delete('q');
+                    window.history.replaceState({}, '', url.pathname);
+                }
+            });
+
+            // Sự kiện input để hiện/tắt nút x
+            searchInput.addEventListener('input', toggleClearBtn);
+
+            // Khi vào trang, kiểm tra có từ khóa không để hiện nút x
+            toggleClearBtn();
+
+            // Hàm lọc sản phẩm theo tên
+            function filterByKeyword(kw) {
+                const keyword = removeVietnameseTones(kw.toLowerCase());
+                let count = 0;
+                const productCards = Array.from(document.querySelectorAll('.product-item'));
+                const matched = [];
+                const unmatched = [];
+
+                productCards.forEach(card => {
+                    const name = card.querySelector('h6').textContent;
+                    const nameNormalized = removeVietnameseTones(name.toLowerCase());
+                    if (nameNormalized.includes(keyword)) {
+                        card.style.display = 'block';
+                        matched.push(card);
+                        count++;
+                    } else {
+                        card.style.display = 'none';
+                        unmatched.push(card);
+                    }
+                });
+
+                // Sắp xếp lại DOM: đưa sản phẩm khớp lên đầu
+                if (matched.length > 0) {
+                    const row = matched[0].closest('.row.pb-3');
+                    matched.forEach(card => row.appendChild(card.closest('.col-lg-4, .col-md-6, .col-sm-12, .pb-1')));
+                    unmatched.forEach(card => row.appendChild(card.closest('.col-lg-4, .col-md-6, .col-sm-12, .pb-1')));
+                }
+
+                // Hiển thị thông báo kết quả
+                const info = document.getElementById('searchResultInfo');
+                if (kw && info) {
+                    if (count > 0) {
+                        info.innerHTML = `Tìm thấy <b>${count}</b> sản phẩm cho từ khóa: <b>"${kw}"</b>`;
+                    } else {
+                        info.innerHTML = `Không tìm thấy sản phẩm nào cho từ khóa: <b>"${kw}"</b>`;
+                    }
+                } else if (info) {
+                    info.innerHTML = '';
+                }
+            }
+
+            // Nếu có từ khóa trên URL thì lọc ngay khi vào trang
+            if (keyword) {
+                filterByKeyword(keyword);
+            }
+
+            // Bắt sự kiện submit form tìm kiếm
+            const searchForm = searchInput?.closest('form');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const kw = searchInput.value.trim().toLowerCase();
+                    filterByKeyword(kw);
+                    // Nếu muốn thay đổi URL khi tìm kiếm mới:
+                    // window.history.replaceState({}, '', '?q=' + encodeURIComponent(kw));
+                });
+            }
+        });
+
+        // Hàm loại bỏ dấu tiếng Việt
+        function removeVietnameseTones(str) {
+            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
+        }
     </script>
+    <!-- Thêm đoạn script này ngay trước </body> để đổi nút đăng nhập thành tên tài khoản và Đăng xuất khi đã đăng nhập -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Đổi màu các thành phần header cho đồng bộ
+    document.querySelectorAll('.bg-primary').forEach(e => e.style.background = '#D19C97');
+    document.querySelectorAll('.text-primary').forEach(e => e.style.color = '#D19C97');
+    document.querySelectorAll('.badge-primary').forEach(e => e.style.background = '#D19C97');
+    document.querySelectorAll('.nav-link.active').forEach(e => e.style.color = '#D19C97');
+
+    // Hiển thị liên kết user_info nếu đã đăng nhập
+    const userNav = document.getElementById('userNav');
+    const loginData = JSON.parse(localStorage.getItem('rememberLogin') || '{}');
+    const userData = JSON.parse(localStorage.getItem('aishibaUser') || '{}');
+    let isLoggedIn = false;
+    let userName = '';
+
+    // Kiểm tra đăng nhập với tài khoản mặc định hoặc tài khoản đã đăng ký
+    if (
+        (loginData.email === 'user1@example.com' && loginData.password === '12345678') ||
+        (loginData.email === 'admin' && loginData.password === '123456') ||
+        (userData.email && loginData.email === userData.email && loginData.password === userData.password)
+    ) {
+        isLoggedIn = true;
+        userName = userData.name || loginData.email;
+    }
+
+    if (isLoggedIn && userNav) {
+        userNav.innerHTML = `
+            <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
+                <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
+            </a>
+            <a href="#" class="nav-item nav-link" id="logoutNav" style="color:#D19C97;">
+                <i class="fa fa-sign-out-alt text-primary mr-2"></i>Đăng xuất
+            </a>
+        `;
+        document.getElementById('logoutNav').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('rememberLogin');
+            window.location.reload();
+        });
+    }
+});
+</script>
+<script>
+// Hàm lấy giỏ hàng từ localStorage
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart') || '[]');
+}
+
+// Hàm lưu giỏ hàng vào localStorage
+function setCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Hàm cập nhật số lượng sản phẩm trên icon giỏ hàng
+function updateCartCount() {
+    const cart = getCart();
+    const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const cartCount = document.getElementById('cartCount');
+    if (cartCount) cartCount.textContent = total;
+}
+
+// Hàm thêm sản phẩm vào giỏ hàng
+function addToCart(productName, productPrice) {
+    let cart = getCart();
+    let found = false;
+    cart = cart.map(item => {
+        if (item.name === productName) {
+            found = true;
+            return { ...item, quantity: (item.quantity || 1) + 1 };
+        }
+        return item;
+    });
+    if (!found) {
+        cart.push({ name: productName, price: productPrice, quantity: 1 });
+    }
+    setCart(cart);
+    updateCartCount();
+
+    // Hiển thị modal thông báo thành công
+    showSuccessModal(productName, productPrice);
+}
+
+// Hàm hiển thị modal thông báo thành công
+function showSuccessModal(productName, price) {
+    let oldModal = document.getElementById('successModal');
+    if (oldModal) oldModal.remove();
+
+    let modal = document.createElement('div');
+    modal.id = 'successModal';
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.background = 'rgba(0,0,0,0.35)';
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.style.zIndex = 10000;
+
+    modal.innerHTML = `
+        <div style="background:#fff; border-radius:12px; max-width:480px; width:90%; padding:36px 32px 28px 32px; box-shadow:0 8px 32px rgba(0,0,0,0.18); text-align:center; position:relative;">
+            <div style="margin-bottom:18px;">
+                <svg width="80" height="80" viewBox="0 0 80 80">
+                    <circle cx="40" cy="40" r="38" fill="none" stroke="#d4f5dd" stroke-width="4"/>
+                    <polyline points="25,43 37,55 56,30" fill="none" stroke="#6fcf97" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2 style="font-weight:700; color:#444; margin-bottom:12px;">Thành công!</h2>
+            <div style="color:#555; font-size:1.1rem; margin-bottom:24px;">
+                Sản phẩm <b>"${productName}"</b> đã được thêm vào giỏ hàng với giá <b>${price.toLocaleString()} VNĐ</b>.
+            </div>
+            <a href="cart.html" id="successModalOk" style="display:inline-block;padding:8px 32px; font-size:1.1rem; border:none; border-radius:8px; background:#7b7be6; color:#fff; font-weight:600; box-shadow:0 2px 8px rgba(123,123,230,0.08); cursor:pointer; text-decoration:none;">Xem giỏ hàng</a>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Đóng modal khi click ra ngoài
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) modal.remove();
+    });
+}
+
+// Cập nhật số lượng khi tải trang
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+});
+</script>
+<script>
+// filepath: d:\Git\ToyshopServlet\Enduser\eshopper-1.0.0\shop.html
+document.addEventListener('DOMContentLoaded', function () {
+    // Liên kết danh mục sang shop.html?category=... và lọc khi vào trang
+    document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
+        link.style.cursor = 'pointer';
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const category = this.textContent.trim();
+            window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+        });
+    });
+
+    // Lọc sản phẩm theo danh mục từ URL
+    const params = new URLSearchParams(window.location.search);
+    const categoryParam = params.get('category');
+    if (categoryParam) {
+        // Ẩn tất cả sản phẩm, chỉ hiện sản phẩm đúng danh mục
+        document.querySelectorAll('.product-item').forEach(function(card) {
+            const name = card.querySelector('h6').textContent.trim();
+            if (name === categoryParam) {
+                card.closest('.col-lg-4, .col-md-6, .col-sm-12, .pb-1').style.display = 'block';
+            } else {
+                card.closest('.col-lg-4, .col-md-6, .col-sm-12, .pb-1').style.display = 'none';
+            }
+        });
+        // Hiển thị thông báo kết quả lọc
+        let info = document.getElementById('searchResultInfo');
+        if (!info) {
+            info = document.createElement('div');
+            info.id = 'searchResultInfo';
+            info.className = 'mb-3';
+            const row = document.querySelector('.row.pb-3');
+            if (row) row.parentNode.insertBefore(info, row);
+        }
+        // Đếm số sản phẩm hiển thị
+        const count = Array.from(document.querySelectorAll('.product-item')).filter(card =>
+            card.closest('.col-lg-4, .col-md-6, .col-sm-12, .pb-1').style.display !== 'none'
+        ).length;
+        info.innerHTML = `Tìm thấy <b>${count}</b> sản phẩm cho danh mục: <b>"${categoryParam}"</b>`;
+    }
+});
+</script>
 </body>
 
 </html>

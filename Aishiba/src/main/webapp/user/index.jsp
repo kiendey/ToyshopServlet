@@ -85,10 +85,6 @@
         <h2 class="section-title px-5"><span class="px-2">Sản phẩm nổi bật</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
-        <%-- Mỗi sản phẩm --%>
-        <%-- Ở đây bạn có thể dùng JSTL hoặc scriptlet để render sản phẩm từ CSDL --%>
-
-        <%-- Ví dụ sản phẩm tĩnh --%>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
