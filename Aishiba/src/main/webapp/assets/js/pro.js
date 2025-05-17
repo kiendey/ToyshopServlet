@@ -1006,4 +1006,3 @@
     window.addEventListener('DOMContentLoaded', function () {
         renderProductTable();
     });
-}
