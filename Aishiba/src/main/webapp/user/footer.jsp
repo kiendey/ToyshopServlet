@@ -1,10 +1,11 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Footer Start -->
 <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
     <div class="row px-xl-5 pt-5">
         <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
             <a href="index.jsp" class="text-decoration-none">
                 <h1 class="mb-4 display-5 font-weight-semi-bold">
-                    <img src="img/logo.png" height="42" alt="Aishiba"> 
+                    <img src="${pageContext.request.contextPath}/user/img/logo.png" height="42" alt="Aishiba">
                     <span class="text-primary">Aishiba</span>
                 </h1>
             </a>
@@ -23,3 +24,15 @@
     </div>
 </div>
 <!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/lib/easing/easing.min.js"></script>
+<script src="${pageContext.request.contextPath}/user/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Template Javascript -->
+<script src="${pageContext.request.contextPath}/user/js/main.js"></script>

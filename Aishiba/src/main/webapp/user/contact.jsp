@@ -75,7 +75,7 @@
 
         if (isLoggedIn && userNav) {
             userNav.innerHTML = `
-                <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
+                <a href="user_info" class="nav-item nav-link" style="color:#D19C97;">
                     <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
                 </a>
                 <a href="#" class="nav-item nav-link" id="logoutNav" style="color:#D19C97;">
@@ -89,13 +89,13 @@
             });
         }
 
-        // Thêm chức năng liên kết danh mục tới shop.html và lọc theo danh mục
+        // Thêm chức năng liên kết danh mục tới shop và lọc theo danh mục
         document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
             link.style.cursor = 'pointer';
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const category = this.textContent.trim();
-                window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+                window.location.href = 'shop?category=' + encodeURIComponent(category);
             });
         });
     });

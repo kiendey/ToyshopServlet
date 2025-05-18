@@ -6,7 +6,7 @@
         <div class="row px-xl-5">
             <!-- Hình ảnh sản phẩm -->
             <div class="col-lg-5">
-                <img class="img-fluid w-100 border" src="img/product-1.jpg" alt="Sản phẩm">
+                <img class="img-fluid w-100 border" src="${pageContext.request.contextPath}/user/img/product-1.jpg" alt="Sản phẩm">
             </div>
 
             <!-- Thông tin sản phẩm -->
@@ -78,7 +78,7 @@
                     <div class="tab-pane fade" id="tab-reviews">
                         <h4 class="mb-3">Đánh giá từ khách hàng</h4>
                         <div class="media mb-4">
-                            <img src="img/user-1.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <img src="${pageContext.request.contextPath}/user/img/user.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
                                 <h6>Nguyễn Văn A<small> - <i>01/05/2025</i></small></h6>
                                 <div class="text-primary mb-2">
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="media mb-4">
-                            <img src="img/user-2.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <img src="${pageContext.request.contextPath}/user/img/user.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
                                 <h6>Trần Thị B<small> - <i>28/04/2025</i></small></h6>
                                 <div class="text-primary mb-2">
@@ -148,7 +148,7 @@
 
     if (isLoggedIn && userNav) {
         userNav.innerHTML = `
-            <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
+            <a href="user_info" class="nav-item nav-link" style="color:#D19C97;">
                 <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
             </a>
             <a href="#" class="nav-item nav-link" id="logoutNav" style="color:#D19C97;">
@@ -164,14 +164,14 @@
     });
 
 
-    // Liên kết danh mục sang shop.html và lọc theo danh mục
+    // Liên kết danh mục sang shop và lọc theo danh mục
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
             link.style.cursor = 'pointer';
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const category = this.textContent.trim();
-                window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+                window.location.href = 'shop?category=' + encodeURIComponent(category);
             });
         });
     });
@@ -242,7 +242,7 @@
                 <div style="color:#555; font-size:1.1rem; margin-bottom:24px;">
                     Sản phẩm <b>"${productName}"</b> đã được thêm vào giỏ hàng với giá <b>${price.toLocaleString()}₫</b>.
                 </div>
-                <a href="cart.html" id="successModalOk" style="display:inline-block;padding:8px 32px; font-size:1.1rem; border:none; border-radius:8px; background:#7b7be6; color:#fff; font-weight:600; box-shadow:0 2px 8px rgba(123,123,230,0.08); cursor:pointer; text-decoration:none;">Xem giỏ hàng</a>
+                <a href="cart" id="successModalOk" style="display:inline-block;padding:8px 32px; font-size:1.1rem; border:none; border-radius:8px; background:#7b7be6; color:#fff; font-weight:600; box-shadow:0 2px 8px rgba(123,123,230,0.08); cursor:pointer; text-decoration:none;">Xem giỏ hàng</a>
             </div>
         `;
         document.body.appendChild(modal);

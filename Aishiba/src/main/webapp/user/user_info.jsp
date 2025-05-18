@@ -6,7 +6,7 @@
             <div class="col-md-3 mb-4">
                 <div class="sidebar rounded shadow-sm p-3 h-100">
                     <div class="text-center mb-3">
-                        <img id="sidebarAvatar" src="img/user-default.png" alt="avatar" class="sidebar-avatar rounded-circle">
+                        <img id="sidebarAvatar" src="${pageContext.request.contextPath}/user/img/user.jpg" alt="avatar" class="sidebar-avatar rounded-circle">
                         <div class="sidebar-username" id="sidebarUsername"></div>
                         <div class="text-muted" style="font-size:0.95rem;"><i class="fas fa-pen"></i> Sửa Hồ Sơ</div>
                     </div>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-4 text-center">
-                                    <img id="avatarPreview" class="profile-avatar" src="img/user-default.png" alt="avatar">
+                                    <img id="avatarPreview" class="profile-avatar" src="${pageContext.request.contextPath}/user/img/user.jpg" alt="avatar">
                                     <input type="file" id="avatarInput" accept="image/*" class="form-control-file mb-2 mt-2" style="display:none;">
                                     <button type="button" class="btn btn-outline-secondary btn-sm mb-2" onclick="document.getElementById('avatarInput').click()">Chọn Ảnh</button>
                                     <small class="text-muted text-center d-block">Dung lượng file tối đa 1 MB<br>Định dạng: JPEG, PNG</small>
@@ -261,7 +261,7 @@
         let profile = getUserProfile();
 
         if (!profile.isLoggedIn) {
-            window.location.href = 'login.html';
+            window.location.href = 'login';
             return;
         }
 
@@ -438,7 +438,7 @@
         document.getElementById('logoutBtn').onclick = function() {
             localStorage.removeItem('rememberLogin');
             alert('Bạn đã đăng xuất thành công!');
-            window.location.href = 'login.html';
+            window.location.href = 'login';
         };
     });
 
@@ -470,7 +470,7 @@
 
             if (isLoggedIn && userNav) {
                 userNav.innerHTML = `
-                    <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
+                    <a href="user_info" class="nav-item nav-link" style="color:#D19C97;">
                         <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
                     </a>
                     <a href="#" class="nav-item nav-link" id="logoutNav" style="color:#D19C97;">
@@ -480,7 +480,7 @@
                 document.getElementById('logoutNav').addEventListener('click', function(e) {
                     e.preventDefault();
                     localStorage.removeItem('rememberLogin');
-                    window.location.href = 'login.html';
+                    window.location.href = 'login';
                 });
             }
         }

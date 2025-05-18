@@ -90,7 +90,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category1" data-price="100000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-1.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi trẻ em</h6>
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=1" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=1" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -111,7 +111,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category2" data-price="150000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-2.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi giáo dục</h6>
@@ -120,7 +120,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=2" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=2" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -132,7 +132,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category3" data-price="200000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-3.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-3.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi mô hình</h6>
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=3" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=3" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -153,7 +153,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category4" data-price="250000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-9.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi vận động</h6>
@@ -162,7 +162,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=4" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=4" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -174,7 +174,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category1" data-price="100000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-5.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi trẻ em</h6>
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=5" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=5" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -195,7 +195,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category2" data-price="150000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-6.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-6.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi giáo dục</h6>
@@ -204,7 +204,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=6" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=6" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -216,7 +216,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category3" data-price="200000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-7.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-7.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi mô hình</h6>
@@ -225,7 +225,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=7" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=7" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -237,7 +237,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="category4" data-price="250000">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-8.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-8.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi vận động</h6>
@@ -246,7 +246,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=8" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=8" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Tên sản phẩm', 1500000)">
@@ -258,7 +258,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4" data-category="lego" data-price="150">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-1.jpg" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3">Đồ chơi LEGO</h6>
@@ -267,7 +267,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="detail.html?id=1" class="btn btn-sm text-dark p-0">
+                                <a href="detail?id=1" class="btn btn-sm text-dark p-0">
                                     <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
                                 </a>
                                 <button class="btn btn-sm text-dark p-0" onclick="addToCart('Đồ chơi LEGO', 150000)">
@@ -502,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (isLoggedIn && userNav) {
         userNav.innerHTML = `
-            <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
+            <a href="user_info" class="nav-item nav-link" style="color:#D19C97;">
                 <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
             </a>
             <a href="#" class="nav-item nav-link" id="logoutNav" style="color:#D19C97;">
@@ -587,7 +587,7 @@ function showSuccessModal(productName, price) {
             <div style="color:#555; font-size:1.1rem; margin-bottom:24px;">
                 Sản phẩm <b>"${productName}"</b> đã được thêm vào giỏ hàng với giá <b>${price.toLocaleString()} VNĐ</b>.
             </div>
-            <a href="cart.html" id="successModalOk" style="display:inline-block;padding:8px 32px; font-size:1.1rem; border:none; border-radius:8px; background:#7b7be6; color:#fff; font-weight:600; box-shadow:0 2px 8px rgba(123,123,230,0.08); cursor:pointer; text-decoration:none;">Xem giỏ hàng</a>
+            <a href="cart" id="successModalOk" style="display:inline-block;padding:8px 32px; font-size:1.1rem; border:none; border-radius:8px; background:#7b7be6; color:#fff; font-weight:600; box-shadow:0 2px 8px rgba(123,123,230,0.08); cursor:pointer; text-decoration:none;">Xem giỏ hàng</a>
         </div>
     `;
     document.body.appendChild(modal);
@@ -604,15 +604,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-// filepath: d:\Git\ToyshopServlet\Enduser\eshopper-1.0.0\shop.html
+// filepath: d:\Git\ToyshopServlet\Enduser\eshopper-1.0.0\shop
 document.addEventListener('DOMContentLoaded', function () {
-    // Liên kết danh mục sang shop.html?category=... và lọc khi vào trang
+    // Liên kết danh mục sang shop?category=... và lọc khi vào trang
     document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
         link.style.cursor = 'pointer';
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const category = this.textContent.trim();
-            window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+            window.location.href = 'shop?category=' + encodeURIComponent(category);
         });
     });
 

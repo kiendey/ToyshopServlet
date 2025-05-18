@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
-
-
     /* Đảm bảo danh mục hiển thị phía trên */
     #navbar-vertical {
         position: absolute;
@@ -28,22 +26,22 @@
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" style="height: 410px;">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/carousel-1.jpg" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
                         <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm giá 10% cho đơn hàng đầu tiên</h4>
                         <h3 class="display-4 text-white font-weight-semi-bold mb-4">Đồ chơi nổi bật</h3>
-                        <a href="shop.html" class="btn btn-light py-2 px-3">Mua ngay</a>
+                        <a href="shop" class="btn btn-light py-2 px-3">Mua ngay</a>
                     </div>
                 </div>
             </div>
             <div class="carousel-item" style="height: 410px;">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="Image">
+                <img class="img-fluid" src="${pageContext.request.contextPath}/user/img/carousel-2.jpg" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
                         <h4 class="text-light text-uppercase font-weight-medium mb-3">Ưu đãi đặc biệt</h4>
                         <h3 class="display-4 text-white font-weight-semi-bold mb-4">Đồ chơi giáo dục</h3>
-                        <a href="shop.html" class="btn btn-light py-2 px-3">Khám phá</a>
+                        <a href="shop" class="btn btn-light py-2 px-3">Khám phá</a>
                     </div>
                 </div>
             </div>
@@ -102,8 +100,8 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="card product-item border-0 mb-4">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href="detail.html">
-                            <img class="img-fluid w-100" src="img/product-1.jpg" alt="Robot đồ chơi">
+                        <a href="detail">
+                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-1.jpg" alt="Robot đồ chơi">
                         </a>
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
@@ -113,7 +111,7 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="detail.html" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                        <a href="detail" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
                         <button class="btn btn-sm text-dark p-0" onclick="addToCart('Robot đồ chơi thông minh', 2500000)">
                             <i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
                         </button>
@@ -124,8 +122,8 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="card product-item border-0 mb-4">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href="detail.html">
-                            <img class="img-fluid w-100" src="img/product-2.jpg" alt="Đồ chơi giáo dục">
+                        <a href="detail">
+                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-2.jpg" alt="Đồ chơi giáo dục">
                         </a>
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
@@ -135,7 +133,7 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="detail.html" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                        <a href="detail" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
                         <button class="btn btn-sm text-dark p-0" onclick="addToCart('Đồ chơi giáo dục sáng tạo', 1200000)">
                             <i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
                         </button>
@@ -146,8 +144,8 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="card product-item border-0 mb-4">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href="detail.html">
-                            <img class="img-fluid w-100" src="img/product-3.jpg" alt="Đồ chơi mô hình">
+                        <a href="detail">
+                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-3.jpg" alt="Đồ chơi mô hình">
                         </a>
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
@@ -157,7 +155,7 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="detail.html" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                        <a href="detail" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
                         <button class="btn btn-sm text-dark p-0" onclick="addToCart('Đồ chơi mô hình xe hơi', 850000)">
                             <i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
                         </button>
@@ -168,8 +166,8 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="card product-item border-0 mb-4">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <a href="detail.html">
-                            <img class="img-fluid w-100" src="img/product-4.jpg" alt="Đồ chơi vận động">
+                        <a href="detail">
+                            <img class="img-fluid w-100" src="${pageContext.request.contextPath}/user/img/product-9.jpg" alt="Đồ chơi vận động">
                         </a>
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
@@ -179,7 +177,7 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="detail.html" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                        <a href="detail" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
                         <button class="btn btn-sm text-dark p-0" onclick="addToCart('Đồ chơi vận động ngoài trời', 1500000)">
                             <i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
                         </button>
@@ -189,8 +187,6 @@
         </div>
     </div>
     <!-- Products End -->
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
     <script>
         // Hàm lấy giỏ hàng từ localStorage
     function getCart() {
@@ -233,7 +229,7 @@
             icon: 'success',
             title: 'Thành công!',
             html: `Sản phẩm "<b>${productName}</b>" đã được thêm vào giỏ hàng với giá <b>${productPrice.toLocaleString()} VNĐ</b>.<br><br>
-                <a href="cart.html" class="swal2-confirm btn btn-primary" style="margin-top:12px;">Xem giỏ hàng</a>`,
+                <a href="cart" class="swal2-confirm btn btn-primary" style="margin-top:12px;">Xem giỏ hàng</a>`,
             showConfirmButton: false,
             timer: 2200
         });
@@ -262,10 +258,10 @@
 
         if (isLoggedIn) {
             userNav.innerHTML = `
-                <a href="user_info.html" class="nav-item nav-link" id="userInfoNav">
+                <a href="user_info" class="nav-item nav-link" id="userInfoNav">
                     <i class="fa fa-user-circle text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
                 </a>
-                <a href="#" class="nav-item nav-link" id="logoutNav">
+                <a href="login" class="nav-item nav-link" id="logoutNav">
                     <i class="fa fa-sign-out-alt text-primary mr-2"></i>Đăng xuất
                 </a>
             `;
@@ -296,13 +292,13 @@
             e.preventDefault();
             const keyword = document.getElementById('searchInput').value.trim();
             if (keyword) {
-                window.location.href = 'shop.html?q=' + encodeURIComponent(keyword);
+                window.location.href = 'shop?q=' + encodeURIComponent(keyword);
             } else {
-                window.location.href = 'shop.html';
+                window.location.href = 'shop';
             }
         });
 
-    // Thêm sự kiện cho các liên kết danh mục để chuyển sang shop.html và lọc theo danh mục
+    // Thêm sự kiện cho các liên kết danh mục để chuyển sang shop và lọc theo danh mục
     document.addEventListener('DOMContentLoaded', function() {
         // Gán sự kiện cho các liên kết danh mục
         document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
@@ -310,8 +306,8 @@
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const category = this.textContent.trim();
-                // Chuyển sang shop.html với tham số category
-                window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+                // Chuyển sang shop với tham số category
+                window.location.href = 'shop?category=' + encodeURIComponent(category);
             });
         });
     });
