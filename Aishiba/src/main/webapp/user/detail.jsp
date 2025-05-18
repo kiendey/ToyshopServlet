@@ -1,318 +1,153 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Aishiba - Chi tiết sản phẩm</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Cửa hàng đồ chơi chất lượng cao" name="keywords">
-    <meta content="Chi tiết sản phẩm tại cửa hàng đồ chơi Aishiba" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
-<!-- Topbar Start -->
-<div class="container-fluid bg-light sticky-top">
-    <div class="row py-2 px-xl-5">
-        <div class="col-lg-6 d-none d-lg-block">
-            <div class="d-inline-flex align-items-center">
-                <a class="text-dark" href="">FAQs</a>
-                <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Trợ giúp</a>
-                <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Hỗ trợ</a>
-            </div>
-        </div>
-    </div>
-    <div class="row align-items-center py-3 px-xl-5">
-        <div class="col-lg-3 d-none d-lg-block">
-            <a href="index.html" class="text-decoration-none">
-                <h1 class="m-0 display-5 font-weight-semi-bold"><img src="img/logo.png" height="42" alt="Aishiba"> <span class="text-primary">Aishiba</span></h1>
-            </a>
-        </div>
-        <div class="col-lg-6 col-6 text-left">
-            <form id="searchForm" action="shop.html" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="searchInput" name="q" placeholder="Tìm kiếm sản phẩm...">
-                    <div class="input-group-append">
-                        <button type="submit" class="input-group-text bg-transparent text-primary" id="searchBtn">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-lg-3 col-6 text-right">
-            <a href="cart.html" class="btn border">
-                <i class="fas fa-shopping-cart text-primary"></i>
-                <span id="cartCount" class="badge">0</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Topbar End -->
-
-    <!-- Navbar Start -->
-    <div class="container-fluid mb-5">
-        <div class="row border-top px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
-                   data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                    <h6 class="m-0">Danh mục</h6>
-                    <i class="fa fa-angle-down text-dark"></i>
-                </a>
-                <nav class="collapse navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
-                     id="navbar-vertical">
-                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi trẻ em</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi giáo dục</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi mô hình</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi vận động</a>
-                        <a href="shop.html" class="nav-item nav-link">Đồ chơi xếp hình</a>
-                        <a href="shop.html" class="nav-item nav-link">Thú bông</a>
-                        <a href="shop.html" class="nav-item nav-link">Robot</a>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-lg-9">
-                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                    <a href="index.html" class="text-decoration-none d-block d-lg-none">
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary">Aishiba</span></h1>
-                    </a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link">Trang chủ</a>
-                            <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
-                            <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
-                        </div>
-                        <div class="navbar-nav ml-auto py-0" id="userNav">
-                            <a href="login.html" class="nav-item nav-link">
-                                <i class="fa fa-user text-primary mr-2"></i>Đăng nhập
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Navbar End -->
-
-<!-- Page Header Start -->
-<div class="container-fluid bg-secondary mb-5">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Chi tiết sản phẩm</h1>
-        <div class="d-inline-flex">
-            <p class="m-0"><a href="index.html">Trang chủ</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0">Chi tiết sản phẩm</p>
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <!-- Product Detail Start -->
-<div class="container-fluid py-5">
-    <div class="row px-xl-5">
-        <!-- Hình ảnh sản phẩm -->
-        <div class="col-lg-5">
-            <img class="img-fluid w-100 border" src="img/product-1.jpg" alt="Sản phẩm">
-        </div>
-
-        <!-- Thông tin sản phẩm -->
-        <div class="col-lg-7">
-            <h3 class="font-weight-semi-bold">Đồ Chơi Lắp Ráp Thùng Gạch Sáng Tạo: Xe Hơi Và Xe Tải LEGO DUPLO 10439 (80 Chi Tiết)</h3>
-            <p class="mb-2"><strong>Thương hiệu:</strong> <a href="#" class="text-primary">LEGO DUPLO</a></p>
-            <p class="mb-2"><strong>SKU:</strong> 10439</p>
-            <h4 class="text-primary mb-3">977.000đ <small class="text-muted"><del>1.629.000đ</del></small> <span class="badge badge-danger">-40%</span></h4>
-            <ul class="list-unstyled mb-4">
-                <li><i class="fa fa-check text-primary mr-2"></i> Hàng chính hãng</li>
-                <li><i class="fa fa-check text-primary mr-2"></i> Miễn phí giao hàng toàn quốc đơn trên 500k</li>
-                <li><i class="fa fa-check text-primary mr-2"></i> Giao hàng hỏa tốc 4 tiếng</li>
-            </ul>
-            <div class="d-flex align-items-center mb-4">
-                <label class="mr-3">Số lượng:</label>
-                <div class="input-group quantity mr-3" style="width: 130px;">
-                    <div class="input-group-btn">
-                        <button class="btn btn-primary btn-minus">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                    </div>
-                    <input type="text" class="form-control bg-secondary text-center" value="1">
-                    <div class="input-group-btn">
-                        <button class="btn btn-primary btn-plus">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-                <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Thêm vào giỏ hàng</button>
+    <div class="container-fluid py-5">
+        <div class="row px-xl-5">
+            <!-- Hình ảnh sản phẩm -->
+            <div class="col-lg-5">
+                <img class="img-fluid w-100 border" src="img/product-1.jpg" alt="Sản phẩm">
             </div>
-            <p class="mb-4"><strong>Dự kiến các cửa hàng đang còn sản phẩm:</strong></p>
-            <div class="border p-3 mb-3">
-                <p class="mb-1"><strong>[CHA093] MYKINGDOM TRƯỜNG CHINH Q12</strong></p>
-                <p class="mb-1">70 Trường Chinh, Phường Tân Hưng Thuận, Quận 12, Thành phố Hồ Chí Minh</p>
-                <p class="mb-0"><i class="fa fa-phone text-primary mr-2"></i>+842836200987</p>
-                <p class="text-success mt-2">Còn: <strong>10</strong> sản phẩm</p>
-            </div>
-        </div>
-    </div>
 
-    <!-- Tab thông tin sản phẩm -->
-    <div class="row px-xl-5 mt-5">
-        <div class="col">
-            <div class="nav nav-tabs border-secondary mb-4">
-                <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-description">Mô tả</a>
-                <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-information">Thông tin kỹ thuật</a>
-                <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-reviews">Đánh giá (3)</a>
-            </div>
-            <div class="tab-content">
-                <!-- Mô tả sản phẩm -->
-                <div class="tab-pane fade show active" id="tab-description">
-                    <h4 class="mb-3">Mô tả sản phẩm</h4>
-                    <p>Đồ chơi lắp ráp thùng gạch sáng tạo giúp trẻ phát triển tư duy sáng tạo, kỹ năng vận động và khả năng giải quyết vấn đề. Sản phẩm phù hợp cho trẻ từ 1 tuổi trở lên.</p>
-                </div>
-
-                <!-- Thông tin kỹ thuật -->
-                <div class="tab-pane fade" id="tab-information">
-                    <h4 class="mb-3">Thông tin kỹ thuật</h4>
-                    <ul class="list-unstyled">
-                        <li><strong>Thương hiệu:</strong> LEGO DUPLO</li>
-                        <li><strong>SKU:</strong> 10439</li>
-                        <li><strong>Chất liệu:</strong> Nhựa ABS an toàn</li>
-                        <li><strong>Số lượng chi tiết:</strong> 80</li>
-                        <li><strong>Độ tuổi phù hợp:</strong> 1+ tuổi</li>
-                    </ul>
-                </div>
-
-                <!-- Đánh giá sản phẩm -->
-                <div class="tab-pane fade" id="tab-reviews">
-                    <h4 class="mb-3">Đánh giá từ khách hàng</h4>
-                    <div class="media mb-4">
-                        <img src="img/user-1.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6>Nguyễn Văn A<small> - <i>01/05/2025</i></small></h6>
-                            <div class="text-primary mb-2">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-alt"></i>
-                            </div>
-                            <p>Sản phẩm rất tốt, bé nhà mình rất thích!</p>
+            <!-- Thông tin sản phẩm -->
+            <div class="col-lg-7">
+                <h3 class="font-weight-semi-bold">Đồ Chơi Lắp Ráp Thùng Gạch Sáng Tạo: Xe Hơi Và Xe Tải LEGO DUPLO 10439 (80 Chi Tiết)</h3>
+                <p class="mb-2"><strong>Thương hiệu:</strong> <a href="#" class="text-primary">LEGO DUPLO</a></p>
+                <p class="mb-2"><strong>SKU:</strong> 10439</p>
+                <h4 class="text-primary mb-3">977.000đ <small class="text-muted"><del>1.629.000đ</del></small> <span class="badge badge-danger">-40%</span></h4>
+                <ul class="list-unstyled mb-4">
+                    <li><i class="fa fa-check text-primary mr-2"></i> Hàng chính hãng</li>
+                    <li><i class="fa fa-check text-primary mr-2"></i> Miễn phí giao hàng toàn quốc đơn trên 500k</li>
+                    <li><i class="fa fa-check text-primary mr-2"></i> Giao hàng hỏa tốc 4 tiếng</li>
+                </ul>
+                <div class="d-flex align-items-center mb-4">
+                    <label class="mr-3">Số lượng:</label>
+                    <div class="input-group quantity mr-3" style="width: 130px;">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary btn-minus">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <input type="text" class="form-control bg-secondary text-center" value="1">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary btn-plus">
+                                <i class="fa fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="media mb-4">
-                        <img src="img/user-2.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6>Trần Thị B<small> - <i>28/04/2025</i></small></h6>
-                            <div class="text-primary mb-2">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Thêm vào giỏ hàng</button>
+                </div>
+                <p class="mb-4"><strong>Dự kiến các cửa hàng đang còn sản phẩm:</strong></p>
+                <div class="border p-3 mb-3">
+                    <p class="mb-1"><strong>[CHA093] MYKINGDOM TRƯỜNG CHINH Q12</strong></p>
+                    <p class="mb-1">70 Trường Chinh, Phường Tân Hưng Thuận, Quận 12, Thành phố Hồ Chí Minh</p>
+                    <p class="mb-0"><i class="fa fa-phone text-primary mr-2"></i>+842836200987</p>
+                    <p class="text-success mt-2">Còn: <strong>10</strong> sản phẩm</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab thông tin sản phẩm -->
+        <div class="row px-xl-5 mt-5">
+            <div class="col">
+                <div class="nav nav-tabs border-secondary mb-4">
+                    <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-description">Mô tả</a>
+                    <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-information">Thông tin kỹ thuật</a>
+                    <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-reviews">Đánh giá (3)</a>
+                </div>
+                <div class="tab-content">
+                    <!-- Mô tả sản phẩm -->
+                    <div class="tab-pane fade show active" id="tab-description">
+                        <h4 class="mb-3">Mô tả sản phẩm</h4>
+                        <p>Đồ chơi lắp ráp thùng gạch sáng tạo giúp trẻ phát triển tư duy sáng tạo, kỹ năng vận động và khả năng giải quyết vấn đề. Sản phẩm phù hợp cho trẻ từ 1 tuổi trở lên.</p>
+                    </div>
+
+                    <!-- Thông tin kỹ thuật -->
+                    <div class="tab-pane fade" id="tab-information">
+                        <h4 class="mb-3">Thông tin kỹ thuật</h4>
+                        <ul class="list-unstyled">
+                            <li><strong>Thương hiệu:</strong> LEGO DUPLO</li>
+                            <li><strong>SKU:</strong> 10439</li>
+                            <li><strong>Chất liệu:</strong> Nhựa ABS an toàn</li>
+                            <li><strong>Số lượng chi tiết:</strong> 80</li>
+                            <li><strong>Độ tuổi phù hợp:</strong> 1+ tuổi</li>
+                        </ul>
+                    </div>
+
+                    <!-- Đánh giá sản phẩm -->
+                    <div class="tab-pane fade" id="tab-reviews">
+                        <h4 class="mb-3">Đánh giá từ khách hàng</h4>
+                        <div class="media mb-4">
+                            <img src="img/user-1.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <div class="media-body">
+                                <h6>Nguyễn Văn A<small> - <i>01/05/2025</i></small></h6>
+                                <div class="text-primary mb-2">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-alt"></i>
+                                </div>
+                                <p>Sản phẩm rất tốt, bé nhà mình rất thích!</p>
                             </div>
-                            <p>Chất lượng tuyệt vời, giao hàng nhanh chóng.</p>
+                        </div>
+                        <div class="media mb-4">
+                            <img src="img/user-2.jpg" alt="User" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <div class="media-body">
+                                <h6>Trần Thị B<small> - <i>28/04/2025</i></small></h6>
+                                <div class="text-primary mb-2">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p>Chất lượng tuyệt vời, giao hàng nhanh chóng.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Product Detail End -->
+    <!-- Product Detail End -->
 
-<!-- Footer Start -->
-<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
-    <div class="row px-xl-5 pt-5">
-        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-            <a href="index.html" class="text-decoration-none">
-                <h1 class="mb-4 display-5 font-weight-semi-bold">
-                    <img src="img/logo.png" height="42" alt="Aishiba">
-                    <span class="text-primary">Aishiba</span>
-                </h1>
-            </a>
-            <p>Chúng tôi cung cấp các sản phẩm đồ chơi chất lượng cao, an toàn và sáng tạo cho trẻ em.</p>
-            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Đường ABC, TP. Hồ Chí Minh</p>
-            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>support@aishiba.com</p>
-            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 123 456 789</p>
-        </div>
-    </div>
-    <div class="row border-top border-light mx-xl-5 py-4">
-        <div class="col-md-6 px-xl-0">
-            <p class="mb-md-0 text-center text-md-left text-dark">
-                &copy; <a class="text-dark font-weight-semi-bold" href="#">Aishiba</a>. All Rights Reserved.
-            </p>
-        </div>
-    </div>
-</div>
-<!-- Footer End -->
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Lấy ID sản phẩm từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
 
-<!-- Back to Top -->
-<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-<!-- Template Javascript -->
-<script src="js/main.js"></script>
-<script>
-    // Lấy ID sản phẩm từ URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
-
-    // Hiển thị ID sản phẩm (hoặc tải thông tin sản phẩm từ server)
-    console.log("ID sản phẩm:", productId);
-</script>
-<script>
+        // Hiển thị ID sản phẩm (hoặc tải thông tin sản phẩm từ server)
+        console.log("ID sản phẩm:", productId);
+        
     document.addEventListener('DOMContentLoaded', function() {
-        // Đổi màu các thành phần header cho đồng bộ
-        document.querySelectorAll('.bg-primary').forEach(e => e.style.background = '#D19C97');
-        document.querySelectorAll('.text-primary').forEach(e => e.style.color = '#D19C97');
-        document.querySelectorAll('.badge-primary').forEach(e => e.style.background = '#D19C97');
-        document.querySelectorAll('.nav-link.active').forEach(e => e.style.color = '#D19C97');
+    // Đổi màu các thành phần header cho đồng bộ
+    document.querySelectorAll('.bg-primary').forEach(e => e.style.background = '#D19C97');
+    document.querySelectorAll('.text-primary').forEach(e => e.style.color = '#D19C97');
+    document.querySelectorAll('.badge-primary').forEach(e => e.style.background = '#D19C97');
+    document.querySelectorAll('.nav-link.active').forEach(e => e.style.color = '#D19C97');
 
-        // Hiển thị liên kết user_info nếu đã đăng nhập
-        const userNav = document.getElementById('userNav');
-        const loginData = JSON.parse(localStorage.getItem('rememberLogin') || '{}');
-        const userData = JSON.parse(localStorage.getItem('aishibaUser') || '{}');
-        let isLoggedIn = false;
-        let userName = '';
+    // Hiển thị liên kết user_info nếu đã đăng nhập
+    const userNav = document.getElementById('userNav');
+    const loginData = JSON.parse(localStorage.getItem('rememberLogin') || '{}');
+    const userData = JSON.parse(localStorage.getItem('aishibaUser') || '{}');
+    let isLoggedIn = false;
+    let userName = '';
 
-        // Kiểm tra đăng nhập với tài khoản mặc định hoặc tài khoản đã đăng ký
-        if (
-            (loginData.email === 'user1@example.com' && loginData.password === '12345678') ||
-            (loginData.email === 'admin' && loginData.password === '123456') ||
-            (userData.email && loginData.email === userData.email && loginData.password === userData.password)
-        ) {
-            isLoggedIn = true;
-            userName = userData.name || loginData.email;
-        }
+    // Kiểm tra đăng nhập với tài khoản mặc định hoặc tài khoản đã đăng ký
+    if (
+        (loginData.email === 'user1@example.com' && loginData.password === '12345678') ||
+        (loginData.email === 'admin' && loginData.password === '123456') ||
+        (userData.email && loginData.email === userData.email && loginData.password === userData.password)
+    ) {
+        isLoggedIn = true;
+        userName = userData.name || loginData.email;
+    }
 
-        if (isLoggedIn && userNav) {
-            userNav.innerHTML = `
+    if (isLoggedIn && userNav) {
+        userNav.innerHTML = `
             <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
                 <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
             </a>
@@ -320,15 +155,15 @@
                 <i class="fa fa-sign-out-alt text-primary mr-2"></i>Đăng xuất
             </a>
         `;
-            document.getElementById('logoutNav').addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('rememberLogin');
-                window.location.reload();
-            });
-        }
+        document.getElementById('logoutNav').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('rememberLogin');
+            window.location.reload();
+        });
+    }
     });
-</script>
-<script>
+
+
     // Liên kết danh mục sang shop.html và lọc theo danh mục
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
@@ -396,20 +231,20 @@
         modal.style.zIndex = 10000;
 
         modal.innerHTML = `
-        <div style="background:#fff; border-radius:12px; max-width:480px; width:90%; padding:36px 32px 28px 32px; box-shadow:0 8px 32px rgba(0,0,0,0.18); text-align:center; position:relative;">
-            <div style="margin-bottom:18px;">
-                <svg width="80" height="80" viewBox="0 0 80 80">
-                    <circle cx="40" cy="40" r="38" fill="none" stroke="#d4f5dd" stroke-width="4"/>
-                    <polyline points="25,43 37,55 56,30" fill="none" stroke="#6fcf97" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            <div style="background:#fff; border-radius:12px; max-width:480px; width:90%; padding:36px 32px 28px 32px; box-shadow:0 8px 32px rgba(0,0,0,0.18); text-align:center; position:relative;">
+                <div style="margin-bottom:18px;">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="38" fill="none" stroke="#d4f5dd" stroke-width="4"/>
+                        <polyline points="25,43 37,55 56,30" fill="none" stroke="#6fcf97" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 style="font-weight:700; color:#444; margin-bottom:12px;">Thành công!</h2>
+                <div style="color:#555; font-size:1.1rem; margin-bottom:24px;">
+                    Sản phẩm <b>"${productName}"</b> đã được thêm vào giỏ hàng với giá <b>${price.toLocaleString()}₫</b>.
+                </div>
+                <a href="cart.html" id="successModalOk" style="display:inline-block;padding:8px 32px; font-size:1.1rem; border:none; border-radius:8px; background:#7b7be6; color:#fff; font-weight:600; box-shadow:0 2px 8px rgba(123,123,230,0.08); cursor:pointer; text-decoration:none;">Xem giỏ hàng</a>
             </div>
-            <h2 style="font-weight:700; color:#444; margin-bottom:12px;">Thành công!</h2>
-            <div style="color:#555; font-size:1.1rem; margin-bottom:24px;">
-                Sản phẩm <b>"${productName}"</b> đã được thêm vào giỏ hàng với giá <b>${price.toLocaleString()}₫</b>.
-            </div>
-            <a href="cart.html" id="successModalOk" style="display:inline-block;padding:8px 32px; font-size:1.1rem; border:none; border-radius:8px; background:#7b7be6; color:#fff; font-weight:600; box-shadow:0 2px 8px rgba(123,123,230,0.08); cursor:pointer; text-decoration:none;">Xem giỏ hàng</a>
-        </div>
-    `;
+        `;
         document.body.appendChild(modal);
 
         modal.addEventListener('click', function(e) {
@@ -458,7 +293,4 @@
             });
         }
     });
-</script>
-</body>
-
-</html>
+    </script>
