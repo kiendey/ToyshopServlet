@@ -4,9 +4,10 @@ import lombok.Getter;
 
 @Getter
 public enum Gender {
-    MALE("Nam"),
-    FEMALE("Nữ"),
-    OTHER("Khác");
+    Nữ("Nữ"),
+    Nam("Nam"),
+    Khác("Khác");
+
 
     private final String displayName;
 

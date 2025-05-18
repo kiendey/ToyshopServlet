@@ -15,6 +15,9 @@
         <entry key="file://$PROJECT_DIR$/Aishiba/src/main/webapp/report_finance.jsp" value="file://$PROJECT_DIR$/Aishiba/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/Aishiba/src/main/webapp/sidebar.jsp" value="file://$PROJECT_DIR$/Aishiba/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/Aishiba/src/main/webapp/stock.jsp" value="file://$PROJECT_DIR$/Aishiba/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/Aishiba/src/main/webapp/user/cart.jsp" value="file://$PROJECT_DIR$/Aishiba/src/main/webapp/user" />
+        <entry key="file://$PROJECT_DIR$/Aishiba/src/main/webapp/user/index.jsp" value="file://$PROJECT_DIR$/Aishiba/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/Aishiba/src/main/webapp/user/login.jsp" value="file://$PROJECT_DIR$/Aishiba/src/main/webapp/user" />
       </map>
     </option>
   </component>

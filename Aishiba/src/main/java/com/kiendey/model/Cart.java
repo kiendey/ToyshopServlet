@@ -19,5 +19,5 @@ public class Cart extends AbstractEntity<String> {
     User user;
 
     @OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
-    List<CartItem> cartItems;
+    List<CartItem> cartItems= new java.util.ArrayList<>();
 }

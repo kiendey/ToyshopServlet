@@ -40,7 +40,7 @@ public class Order extends AbstractEntity<String> {
     DeliveryMethod deliveryMethod;
 
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
-    List<OrderItem> orderItems;
+    List<OrderItem> orderItems = new java.util.ArrayList<>();
 
 
 }

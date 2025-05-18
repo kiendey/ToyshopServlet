@@ -53,27 +53,17 @@ public class InitServlet extends HttpServlet {
 
             // Tạo Role với Permission
             Role userRole = new Role();
-            userRole.setName("USER");
+            userRole.setName("User");
             userRole.setDescription("Regular user role");
 
             // Kiểm tra role
             Role existingRole = em.createQuery("SELECT r FROM Role r WHERE r.name = :name", Role.class)
-                    .setParameter("name", "USER")
+                    .setParameter("name", "User")
                     .getResultList()
                     .stream()
                     .findFirst()
                     .orElse(null);
 
-            if (existingRole == null) {
-                // Thiết lập permission cho role
-                Set<Permission> permissions = new HashSet<>();
-                permissions.add(viewPermission);
-                userRole.setPermissions(permissions);
-
-                em.persist(userRole);
-            } else {
-                userRole = existingRole;
-            }
 
             // Kiểm tra xem User đã tồn tại hay chưa
             User existingUser = em.createQuery("SELECT u FROM User u WHERE u.id = :id", User.class)

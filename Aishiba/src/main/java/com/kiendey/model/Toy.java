@@ -41,7 +41,7 @@ public class Toy {
     String origin;
 
     @Column(name = "age")
-    int age;
+    String age;
 
     @Column(name = "image")
     String image;

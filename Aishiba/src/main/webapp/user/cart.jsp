@@ -1,42 +1,207 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aishiba - Giỏ hàng</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Giỏ hàng tại cửa hàng đồ chơi Aishiba" name="keywords">
+    <meta content="Trang giỏ hàng tại cửa hàng đồ chơi Aishiba" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+    .sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Đảm bảo danh mục hiển thị phía trên */
+    #navbar-vertical {
+        position: absolute;
+        top: 65px; /* Đặt vị trí ngay dưới thanh navbar */
+        left: 0;
+        z-index: 1050; /* Đảm bảo nó hiển thị trên các phần tử khác */
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Khi danh mục được mở */
+    #navbar-vertical.show {
+        display: block;
+    }
+
+    /* Đảm bảo các phần tử khác không bị che */
+    .container-fluid {
+        position: relative;
+    }
+</style>
+<body>
+
+<div class="sticky-top">
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light">
+        <div class="row py-2 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark" href="">FAQs</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Trợ giúp</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Hỗ trợ</a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center py-3 px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a href="enduser/index" class="text-decoration-none">
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><img src="img/logo.png" height="42" alt="Aishiba"> <span class="text-primary">Aishiba</span></h1>
+                </a>
+            </div>
+            <div class="col-lg-6 col-6 text-left">
+                <form id="searchForm" action="enduser/shop" method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text bg-transparent text-primary" id="searchBtn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 col-6 text-right">
+                <a href="enduser/cart" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span id="cartCount" class="badge">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid mb-5">
+        <div class="row border-top px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
+                   data-toggle="collapse" href="#navbar-vertical"
+                   style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                    <h6 class="m-0">Danh mục</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav class="collapse navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
+                     id="navbar-vertical">
+                    <div class="navbar-nav w-100 overflow-hidden" style="height: auto;">
+                        <a href="" class="nav-item nav-link">Đồ chơi trẻ em</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi giáo dục</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi mô hình</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi vận động</a>
+                        <a href="" class="nav-item nav-link">Đồ chơi xếp hình</a>
+                        <a href="" class="nav-item nav-link">Thú bông</a>
+                        <a href="" class="nav-item nav-link">Robot</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                    <a href="enduser/homepage" class="text-decoration-none d-block d-lg-none">
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary">Aishiba</span></h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="enduser/homepage" class="nav-item nav-link active">Trang chủ</a>
+                            <a href="enduser/shop" class="nav-item nav-link">Cửa hàng</a>
+                            <a href="enduser/contact" class="nav-item nav-link">Liên hệ</a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0" id="userNav">
+                            <a href="enduser/login" class="nav-item nav-link">
+                                <i class="fa fa-user text-primary mr-2"></i>Đăng nhập
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+</div>
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Giỏ hàng</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="enduser/homepage">Trang chủ</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Giỏ hàng</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
 <!-- Cart Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-bordered text-center mb-0">
                 <thead class="bg-secondary text-dark">
-                    <tr>
-                        <th>Sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Số lượng</th>
-                        <th>Tổng</th>
-                        <th>Xóa</th>
-                    </tr>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng</th>
+                    <th>Xóa</th>
+                </tr>
                 </thead>
                 <tbody class="align-middle" id="cartItems">
-                    <tr data-id="1">
-                        <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Đồ chơi trẻ em
-                        </td>
-                        <td class="align-middle price">150000</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-secondary text-center quantity-input"
-                                    value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
+                <tr data-id="1">
+                    <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Đồ chơi trẻ em
+                    </td>
+                    <td class="align-middle price">150000</td>
+                    <td class="align-middle">
+                        <div class="input-group quantity mx-auto" style="width: 100px;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-primary btn-minus">
+                                    <i class="fa fa-minus"></i>
+                                </button>
                             </div>
-                        </td>
-                        <td class="align-middle total">150000</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-primary btn-remove"><i class="fa fa-times"></i>
-                            </button></td>
-                    </tr>
+                            <input type="text" class="form-control form-control-sm bg-secondary text-center quantity-input"
+                                   value="1">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-primary btn-plus">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="align-middle total">150000</td>
+                    <td class="align-middle"><button class="btn btn-sm btn-primary btn-remove"><i class="fa fa-times"></i>
+                    </button></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -68,6 +233,33 @@
 </div>
 <!-- Cart End -->
 
+<!-- Footer Start -->
+<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <a href="index.html" class="text-decoration-none">
+                <h1 class="mb-4 display-5 font-weight-semi-bold">
+                    <img src="img/logo.png" height="42" alt="Aishiba">
+                    <span class="text-primary">Aishiba</span>
+                </h1>
+            </a>
+            <p>Chúng tôi cung cấp các sản phẩm đồ chơi chất lượng cao, an toàn và sáng tạo cho trẻ em.</p>
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Đường ABC, TP. Hồ Chí Minh
+            </p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>support@aishiba.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 123 456 789</p>
+        </div>
+    </div>
+    <div class="row border-top border-light mx-xl-5 py-4">
+        <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-center text-md-left text-dark">
+                &copy; <a class="text-dark font-weight-semi-bold" href="#">Aishiba</a>. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
@@ -81,59 +273,175 @@
 <script src="js/main.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // --- Hiển thị sản phẩm từ localStorage ---
         const cartItems = document.getElementById("cartItems");
         const totalElement = document.querySelector(".card-footer .font-weight-bold:last-child");
+        const cartCount = document.getElementById("cartCount");
 
-        // Hàm cập nhật tổng tiền
-        function updateTotal() {
-            let total = 0;
-            cartItems.querySelectorAll("tr").forEach(row => {
-                const totalCell = row.querySelector(".total");
-                total += parseInt(totalCell.textContent);
-            });
-            totalElement.textContent = total.toLocaleString() + "₫";
+        // Lấy giỏ hàng từ localStorage
+        function getCart() {
+            return JSON.parse(localStorage.getItem('cart') || '[]');
         }
 
-        // Xử lý tăng số lượng
-        cartItems.addEventListener("click", function (e) {
-            if (e.target.closest(".btn-plus")) {
-                const row = e.target.closest("tr");
-                const quantityInput = row.querySelector(".quantity-input");
-                const price = parseInt(row.querySelector(".price").textContent);
-                let quantity = parseInt(quantityInput.value);
-                quantity++;
-                quantityInput.value = quantity;
-                row.querySelector(".total").textContent = (quantity * price).toLocaleString();
-                updateTotal();
-            }
-        });
+        // Lưu giỏ hàng vào localStorage
+        function setCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
 
-        // Xử lý giảm số lượng
+        // Cập nhật số lượng trên icon
+        function updateCartCount() {
+            const cart = getCart();
+            const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            if (cartCount) cartCount.textContent = total;
+        }
+
+        // Hiển thị sản phẩm trong bảng
+        function renderCart() {
+            const cart = getCart();
+            cartItems.innerHTML = '';
+            let subtotal = 0;
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<tr><td colspan="5">Giỏ hàng trống.</td></tr>`;
+            } else {
+                cart.forEach((item, idx) => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    cartItems.innerHTML += `
+                            <tr data-id="${idx}">
+                                <td class="align-middle">${item.name}</td>
+                                <td class="align-middle price">${item.price.toLocaleString()}₫</td>
+                                <td class="align-middle">
+                                    <div class="input-group quantity mx-auto" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-primary btn-minus">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm bg-secondary text-center quantity-input"
+                                            value="${item.quantity}">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-primary btn-plus">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="align-middle total">${itemTotal.toLocaleString()}₫</td>
+                                <td class="align-middle"><button class="btn btn-sm btn-primary btn-remove"><i class="fa fa-times"></i>
+                                    </button></td>
+                            </tr>
+                        `;
+                });
+            }
+            updateSummary(subtotal);
+            updateCartCount();
+        }
+
+        // Cập nhật tổng tiền và tóm tắt giỏ hàng
+        function updateSummary(subtotal) {
+            // Phí vận chuyển cố định 30.000₫ nếu có hàng, 0 nếu trống
+            let shipping = subtotal > 0 ? 30000 : 0;
+            let total = subtotal + shipping;
+
+            // Cập nhật tóm tắt giỏ hàng
+            document.querySelector(".card-body .d-flex.mb-3.pt-1 h6:last-child").textContent = subtotal.toLocaleString() + "₫";
+            document.querySelector(".card-body .d-flex:last-child h6:last-child").textContent = shipping.toLocaleString() + "₫";
+            document.querySelector(".card-footer .font-weight-bold:last-child").textContent = total.toLocaleString() + "₫";
+        }
+
+        // Xử lý tăng/giảm/xóa sản phẩm
         cartItems.addEventListener("click", function (e) {
+            const cart = getCart();
+            const row = e.target.closest("tr");
+            if (!row) return;
+            const idx = parseInt(row.getAttribute("data-id"));
+            if (e.target.closest(".btn-plus")) {
+                cart[idx].quantity++;
+                setCart(cart);
+                renderCart();
+            }
             if (e.target.closest(".btn-minus")) {
-                const row = e.target.closest("tr");
-                const quantityInput = row.querySelector(".quantity-input");
-                const price = parseInt(row.querySelector(".price").textContent);
-                let quantity = parseInt(quantityInput.value);
-                if (quantity > 1) {
-                    quantity--;
-                    quantityInput.value = quantity;
-                    row.querySelector(".total").textContent = (quantity * price).toLocaleString();
-                    updateTotal();
+                if (cart[idx].quantity > 1) {
+                    cart[idx].quantity--;
+                    setCart(cart);
+                    renderCart();
                 }
             }
-        });
-
-        // Xử lý xóa sản phẩm
-        cartItems.addEventListener("click", function (e) {
             if (e.target.closest(".btn-remove")) {
-                const row = e.target.closest("tr");
-                row.remove();
-                updateTotal();
+                cart.splice(idx, 1);
+                setCart(cart);
+                renderCart();
             }
         });
 
-        // Cập nhật tổng tiền ban đầu
-        updateTotal();
+        // Xử lý nhập số lượng trực tiếp
+        cartItems.addEventListener("change", function (e) {
+            if (e.target.classList.contains("quantity-input")) {
+                const row = e.target.closest("tr");
+                const idx = parseInt(row.getAttribute("data-id"));
+                let val = parseInt(e.target.value) || 1;
+                if (val < 1) val = 1;
+                const cart = getCart();
+                cart[idx].quantity = val;
+                setCart(cart);
+                renderCart();
+            }
+        });
+
+        // Khởi tạo giỏ hàng khi tải trang
+        renderCart();
+
+        // --- Đổi màu header cho đồng bộ và userNav ---
+        document.querySelectorAll('.bg-primary').forEach(e => e.style.background = '#D19C97');
+        document.querySelectorAll('.text-primary').forEach(e => e.style.color = '#D19C97');
+        document.querySelectorAll('.badge-primary').forEach(e => e.style.background = '#D19C97');
+        document.querySelectorAll('.nav-link.active').forEach(e => e.style.color = '#D19C97');
+
+        // Hiển thị liên kết user_info nếu đã đăng nhập
+        const userNav = document.getElementById('userNav');
+        const loginData = JSON.parse(localStorage.getItem('rememberLogin') || '{}');
+        const userData = JSON.parse(localStorage.getItem('aishibaUser') || '{}');
+        let isLoggedIn = false;
+        let userName = '';
+
+        if (
+            (loginData.email === 'user1@example.com' && loginData.password === '12345678') ||
+            (loginData.email === 'admin' && loginData.password === '123456') ||
+            (userData.email && loginData.email === userData.email && loginData.password === userData.password)
+        ) {
+            isLoggedIn = true;
+            userName = userData.name || loginData.email;
+        }
+
+        if (isLoggedIn && userNav) {
+            userNav.innerHTML = `
+                    <a href="user_info.html" class="nav-item nav-link" style="color:#D19C97;">
+                        <i class="fa fa-user text-primary mr-2"></i>${userName ? userName : 'Tài khoản của tôi'}
+                    </a>
+                    <a href="#" class="nav-item nav-link" id="logoutNav" style="color:#D19C97;">
+                        <i class="fa fa-sign-out-alt text-primary mr-2"></i>Đăng xuất
+                    </a>
+                `;
+            document.getElementById('logoutNav').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('rememberLogin');
+                window.location.reload();
+            });
+        }
+    });
+
+    // Thêm chức năng liên kết danh mục tới shop.html và lọc theo danh mục
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('#navbar-vertical .nav-item.nav-link').forEach(function(link) {
+            link.style.cursor = 'pointer';
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const category = this.textContent.trim();
+                window.location.href = 'shop.html?category=' + encodeURIComponent(category);
+            });
+        });
     });
 </script>
+</body>
+
+</html>

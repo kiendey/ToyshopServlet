@@ -1,17 +1,28 @@
 package com.kiendey.servlet;
 
+import com.kiendey.dao.OrderDAO;
+import com.kiendey.dao.impl.OrderDAOImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet("/order")
 public class Order extends HttpServlet {
+
+    private OrderDAO orderDAO;
+
+    public void init() {
+        orderDAO = new OrderDAOImpl();
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
+        List<com.kiendey.model.Order> orders = orderDAO.getAllOrders();
+        req.setAttribute("orders", orders);
         //Call jsp files
         RequestDispatcher head = req.getRequestDispatcher("/head.jsp");
         if (head != null){
