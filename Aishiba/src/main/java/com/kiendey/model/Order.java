@@ -42,5 +42,4 @@ public class Order extends AbstractEntity<String> {
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
     List<OrderItem> orderItems = new java.util.ArrayList<>();
 
-
 }

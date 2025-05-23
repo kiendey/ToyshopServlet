@@ -1,7 +1,5 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Đơn hàng</h1>
@@ -9,7 +7,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="homepage">Trang chủ</a></li>
         <li class="breadcrumb-item"><a href="#">Giao dịch</a></li>
-        <li class="breadcrumb-item active ">Đơn hàng</li>
+        <li class="breadcrumb-item active">Đơn hàng</li>
       </ol>
     </nav>
   </div>
@@ -71,10 +69,10 @@
               <table class="table table-hover">
                 <thead class="table-light">
                 <tr>
-                  <th class="text-center">
+                  <th class="text-center" width="40">
                     <input type="checkbox" class="form-check-input" id="selectAll" title="Chọn tất cả đơn hàng">
                   </th>
-                  <th ><i class=" bi bi-star header-star text-center"></i></th>
+                  <th class="text-center" width="40">★</th>
                   <th class="text-start">Mã hóa đơn</th>
                   <th class="text-center">Thời gian</th>
                   <th class="text-center">Mã trả hàng</th>
@@ -85,37 +83,125 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="order" items="${orders}">
-                  <tr>
-                    <td class="text-center">
-                      <input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này">
-                    </td>
-                    <td class="text-center">
-                      <i class="bi bi-star text-warning"></i>
-                    </td>
-                    <td class="text-start">
-                      <a href="#" class="text-primary">${order.id}</a>
-                    </td>
-                    <td class="text-center">
-                      <fmt:formatDate value="${order.orderDate}" pattern="dd/MM/yyyy HH:mm" type="both"/>                    </td>
-                    <td class="text-center">
-                <span class="badge ${order.status eq 'COMPLETED' ? 'bg-success' : 'bg-secondary'}">
-                    <c:out value="${order.returnId != null ? order.returnId : '-'}"/>
-                </span>
-                    </td>
-                    <td class="text-start">
-                      <c:out value="${order.user.name} - ${order.user.address}"/>
-                    </td>
-                    <td class="text-end">
-                      <fmt:formatNumber value="${order.total}" type="currency" currencySymbol=""/>
-                    </td>
-                    <td class="text-end text-danger">
-                      <fmt:formatNumber value="${order.discount}" type="currency" currencySymbol=""/>
-                    </td>
-                    <td class="text-end text-success">
-                      <fmt:formatNumber value="${order.total - order.discount}" type="currency" currencySymbol=""/>                    </td>
-                  </tr>
-                </c:forEach>
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000055</a></td>
+                  <td class="text-center">20/04/2025 15:30</td>
+                  <td class="text-center"><span class="badge bg-success">TH000132</span></td>
+                  <td class="text-start">Chị Lan - Hà Nội</td>
+                  <td class="text-end">1,250,000</td>
+                  <td class="text-end text-danger">50,000</td>
+                  <td class="text-end text-success">1,200,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000054</a></td>
+                  <td class="text-center">19/04/2025 14:45</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Anh Tuấn - Đà Nẵng</td>
+                  <td class="text-end">2,800,000</td>
+                  <td class="text-end text-danger">100,000</td>
+                  <td class="text-end text-success">2,700,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000053</a></td>
+                  <td class="text-center">18/04/2025 11:20</td>
+                  <td class="text-center"><span class="badge bg-success">TH000131</span></td>
+                  <td class="text-start">Chị Hương - Hải Phòng</td>
+                  <td class="text-end">3,500,000</td>
+                  <td class="text-end text-danger">150,000</td>
+                  <td class="text-end text-success">3,350,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000052</a></td>
+                  <td class="text-center">17/04/2025 09:15</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Anh Nam - Cần Thơ</td>
+                  <td class="text-end">1,800,000</td>
+                  <td class="text-end text-danger">0</td>
+                  <td class="text-end text-success">1,800,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000051</a></td>
+                  <td class="text-center">16/04/2025 16:40</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Chị Mai - Nha Trang</td>
+                  <td class="text-end">2,100,000</td>
+                  <td class="text-end text-danger">100,000</td>
+                  <td class="text-end text-success">2,000,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000050</a></td>
+                  <td class="text-center">15/04/2025 13:25</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Anh Dũng - Huế</td>
+                  <td class="text-end">4,200,000</td>
+                  <td class="text-end text-danger">200,000</td>
+                  <td class="text-end text-success">4,000,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000049</a></td>
+                  <td class="text-center">14/04/2025 10:50</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Chị Linh - Vũng Tàu</td>
+                  <td class="text-end">1,550,000</td>
+                  <td class="text-end text-danger">50,000</td>
+                  <td class="text-end text-success">1,500,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000048</a></td>
+                  <td class="text-center">13/04/2025 14:15</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Anh Thành - Bình Dương</td>
+                  <td class="text-end">2,900,000</td>
+                  <td class="text-end text-danger">100,000</td>
+                  <td class="text-end text-success">2,800,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000047</a></td>
+                  <td class="text-center">12/04/2025 09:30</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Chị Thảo - Đồng Nai</td>
+                  <td class="text-end">3,300,000</td>
+                  <td class="text-end text-danger">150,000</td>
+                  <td class="text-end text-success">3,150,000</td>
+                </tr>
+
+                <tr>
+                  <td class="text-center"><input type="checkbox" class="form-check-input row-checkbox" title="Chọn đơn hàng này"></td>
+                  <td class="text-center"><i class="bi bi-star text-warning"></i></td>
+                  <td class="text-start"><a href="#" class="text-primary">HD000046</a></td>
+                  <td class="text-center">11/04/2025 16:20</td>
+                  <td class="text-center"><span class="badge bg-secondary">-</span></td>
+                  <td class="text-start">Anh Phong - Long An</td>
+                  <td class="text-end">1,700,000</td>
+                  <td class="text-end text-danger">0</td>
+                  <td class="text-end text-success">1,700,000</td>
+                </tr>
                 </tbody>
               </table>
             </div>
@@ -892,7 +978,7 @@
                                   <span className="badge bg-primary rounded-pill">
                                       {(() => {
                                           const linkElement = document.querySelector(`
-                                          a[href="#"][text="${id}"]`);
+      a[href="#"][text="${id}"]`);
                                           return linkElement
                                               ? linkElement.closest('tr')?.querySelector('td:nth-child(7)')?.textContent || ''
                                               : '';

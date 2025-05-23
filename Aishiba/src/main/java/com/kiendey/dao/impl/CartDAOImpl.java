@@ -3,6 +3,7 @@ package com.kiendey.dao.impl;
 import com.kiendey.dao.CartDAO;
 import com.kiendey.model.Cart;
 import com.kiendey.model.CartItem;
+import com.kiendey.model.Toy;
 import com.kiendey.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -67,8 +68,8 @@ public class CartDAOImpl implements CartDAO {
             }
 
             CartItem cartItem = new CartItem();
-            cartItem.getId().setCartId(cart.getId());
-            cartItem.getId().setToyId(toyId);
+            cartItem.setCart(cart);
+            cartItem.setToy(session.get(Toy.class, toyId));
             cartItem.setQuantity(quantity);
 
             session.persist(cartItem);
@@ -140,7 +141,7 @@ public class CartDAOImpl implements CartDAO {
     @Override
     public List<CartItem> getCartItems(String cartId) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "FROM CartItem ci WHERE ci.id.cartId = :cartId";
+            String hql = "FROM CartItem ci WHERE ci.id = :cartId";
             return session.createQuery(hql, CartItem.class)
                     .setParameter("cartId", cartId)
                     .list();

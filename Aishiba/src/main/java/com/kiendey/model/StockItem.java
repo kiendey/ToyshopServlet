@@ -9,14 +9,14 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "order_items")
+@Table(name = "stock_items")
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class OrderItem extends AbstractEntity<String>{
+public class StockItem extends AbstractEntity<String> {
 
     @Column(name = "quantity", nullable = false)
     int quantity;
@@ -26,7 +26,7 @@ public class OrderItem extends AbstractEntity<String>{
     Toy toy;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "order_id", nullable = false)
-    Order order;
+    @JoinColumn(name = "stock_id", nullable = false)
+    Stock stock;
 
 }

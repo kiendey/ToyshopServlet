@@ -1,11 +1,9 @@
 package com.kiendey.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,6 +32,9 @@ public class Supplier extends AbstractEntity<String>{
     @Column(name = "description")
     String description;
 
+    @OneToMany(mappedBy = "supplier")
+    List<Stock> stocks = new ArrayList<>();
+
     @OneToMany (mappedBy = "supplier")
-    List<Toy> toys;
+    List<Toy> toys = new ArrayList<>();
 }

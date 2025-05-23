@@ -31,6 +31,8 @@
         <mapping class="com.kiendey.model.Permission"/>
         <mapping class="com.kiendey.model.Role"/>
         <mapping class="com.kiendey.model.Supplier"/>
+        <mapping class="com.kiendey.model.Stock"/>
+        <mapping class="com.kiendey.model.StockItem"/>
 
 
     </session-factory>

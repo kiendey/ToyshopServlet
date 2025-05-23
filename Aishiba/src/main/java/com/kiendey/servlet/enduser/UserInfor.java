@@ -19,6 +19,5 @@ public class UserInfor extends HttpServlet {
         if (footer != null) {
             footer.include(req, resp);
         }
-
     }
 }

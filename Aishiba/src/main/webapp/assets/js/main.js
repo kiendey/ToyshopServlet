@@ -309,25 +309,25 @@
       }
     };
 
-    // Username validation config
+// Cấu hình xác thực tên người dùng
     const usernameConfig = {
       regex: /^[a-zA-Z0-9_]{3,20}$/,
       minLength: 3,
       messages: {
-        required: 'Username is required',
-        minLength: 'Username must be at least 3 characters',
-        pattern: 'Username must contain only letters, numbers and underscore'
+        required: 'Tên người dùng là bắt buộc',
+        minLength: 'Tên người dùng phải có ít nhất 3 ký tự',
+        pattern: 'Tên người dùng chỉ được chứa chữ cái, số và dấu gạch dưới'
       }
     };
 
-    // Password validation config
+// Cấu hình xác thực mật khẩu
     const passwordConfig = {
       regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
       minLength: 8,
       messages: {
-        required: 'Password is required',
-        minLength: 'Password must be at least 8 characters',
-        pattern: 'Password must contain at least one letter and one number'
+        required: 'Mật khẩu là bắt buộc',
+        minLength: 'Mật khẩu phải có ít nhất 8 ký tự',
+        pattern: 'Mật khẩu phải chứa ít nhất một chữ cái và một số'
       }
     };
 

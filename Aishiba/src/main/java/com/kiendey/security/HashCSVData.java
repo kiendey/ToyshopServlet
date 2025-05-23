@@ -1,8 +1,7 @@
-package com.kiendey.securuty;
+package com.kiendey.security;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import java.io.*;
-import java.util.UUID;
 
 public class HashCSVData {
     public static void main(String[] args) {

@@ -38,11 +38,5 @@ public class HomePage extends HttpServlet {
         if (end != null){
             end.include(req, resp);
         }
-        String page = req.getParameter("page");
-
-        if ("order".equals(page)) {
-            resp.sendRedirect(req.getContextPath() + "/order");
-            return;
-        }
     }
 }
